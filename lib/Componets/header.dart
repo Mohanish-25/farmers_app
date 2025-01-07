@@ -7,8 +7,7 @@ class Header extends StatelessWidget {
   const Header({
     super.key,
     this.collegeLogo = 'assets/images/College_Logo.png',
-    this.nssLogo =
-        'https://dashboard.codeparrot.ai/api/assets/Z3uNL0jX1HzWCCfU',
+    this.nssLogo = 'assets/images/NSS_Logo.png',
   });
 
   @override
@@ -19,9 +18,9 @@ class Header extends StatelessWidget {
 
     // Define responsive dimensions
     final logoWidth =
-        screenWidth * 0.09; // College logo width as 10% of screen width
+        screenWidth * 0.10; // College logo width as 10% of screen width
     final nssLogoWidth =
-        screenWidth * 0.14; // NSS logo width as 14% of screen width
+        screenWidth * 0.15; // NSS logo width as 14% of screen width
     final spacingBetweenLogos =
         screenWidth * 0.05; // Spacing as 5% of screen width
     final textFontSize = screenWidth * 0.06; // Font size as 6% of screen width
@@ -66,7 +65,7 @@ class Header extends StatelessWidget {
               ),
             ],
           ),
-          Image.network(
+          Image.asset(
             nssLogo,
             width: nssLogoWidth,
             height: nssLogoWidth * 1.1, // Maintain aspect ratio

@@ -22,6 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Get the screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // Define the size for the logos
+    final logoWidth = screenWidth * 0.2; // 20% of screen width
+    final logoHeight = logoWidth * 1.35; // Maintain aspect ratio
+
     return Scaffold(
       backgroundColor: const Color(0xFFF2FFF8),
       body: Center(
@@ -33,24 +41,19 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Image.asset(
                   'assets/images/College_Logo.png',
-                  width: 80,
-                  height: 108.57,
+                  width: logoWidth,
+                  height: logoHeight,
                 ),
-                const SizedBox(width: 35),
-                Image.network(
-                  'https://dashboard.codeparrot.ai/api/assets/Z3t9kXwdoACPgq32',
-                  width: 1,
-                  height: 136,
-                ),
-                const SizedBox(width: 12),
-                Image.network(
-                  'https://dashboard.codeparrot.ai/api/assets/Z3t9kXwdoACPgq33',
-                  width: 122,
-                  height: 137,
+                SizedBox(width: screenWidth * 0.2), // 5% of screen width
+
+                Image.asset(
+                  'assets/images/NSS_Logo.png',
+                  width: logoWidth * 1.3,
+                  height: logoHeight,
                 ),
               ],
             ),
-            const SizedBox(height: 25),
+            SizedBox(height: screenHeight * 0.03), // 3% of screen height
             const Text(
               'PESMCOE',
               style: TextStyle(
@@ -62,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 1.2,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02), // 2% of screen height
             const Text(
               'NSS Unit',
               style: TextStyle(
@@ -74,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 1.2,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: screenHeight * 0.01), // 1% of screen height
             const Text(
               'presents',
               style: TextStyle(
@@ -86,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 2,
               ),
             ),
-            const SizedBox(height: 45),
+            SizedBox(height: screenHeight * 0.05), // 5% of screen height
             const Text(
               'Kisaan App',
               style: TextStyle(

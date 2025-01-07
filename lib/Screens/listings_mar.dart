@@ -4,6 +4,7 @@ import 'package:farmers_app/Screens/select_language.dart';
 import 'package:farmers_app/Screens/signin_english.dart';
 import 'package:farmers_app/Screens/signin_mar.dart';
 import 'package:flutter/material.dart';
+import 'package:farmers_app/Componets/custom_card.dart';
 
 class ListingsMarathiScreen extends StatefulWidget {
   const ListingsMarathiScreen({super.key});
@@ -148,7 +149,9 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                   children: [
                     SizedBox(
                         height: screenHeight * 0.03), // 3% of screen height
-                    InkWell(
+                    CustomCard(
+                      imagePath: 'assets/images/PM_Samman.jpg',
+                      title: 'प्रधानमंत्री किसान सन्मान निधी',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -157,68 +160,16 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                           ),
                         );
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.0),
-                          border: Border.all(color: Colors.black),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                              screenWidth * 0.03), // Scaled padding
-                          child: Column(
-                            children: [
-                              const Text(
-                                'प्रधानमंत्री किसान सन्मान निधी',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFF2C2E35),
-                                ),
-                              ),
-                              SizedBox(height: screenHeight * 0.015),
-                              Image.network(
-                                'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq5z',
-                                width: screenWidth * 0.8, // 80% of screen width
-                                height:
-                                    screenHeight * 0.2, // 20% of screen height
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
                     SizedBox(height: screenHeight * 0.03),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(screenWidth * 0.03),
-                        child: Column(
-                          children: [
-                            const Text(
-                              'प्रधानमंत्री किसान मानधन योजना',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xFF2C2E35),
-                              ),
-                            ),
-                            SizedBox(height: screenHeight * 0.015),
-                            Image.network(
-                              'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq50',
-                              width: screenWidth * 0.8,
-                              height: screenHeight * 0.2,
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        ),
-                      ),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_MaanDhan.jpg',
+                      title: 'प्रधानमंत्री किसान मानधन योजना',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
                     ),
+                    // Add more CustomCard widgets as needed
                   ],
                 ),
               ),

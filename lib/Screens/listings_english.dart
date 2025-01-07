@@ -1,9 +1,12 @@
-import 'package:farmers_app/Componets/header.dart';
-import 'package:farmers_app/Screens/Details_samman_english.dart';
+import 'package:farmers_app/Screens/details_maandhan_english.dart';
+import 'package:farmers_app/Screens/pm_creditcard_eng.dart';
+import 'package:flutter/material.dart';
+import 'package:farmers_app/Screens/details_samman_english.dart';
 import 'package:farmers_app/Screens/select_language.dart';
 import 'package:farmers_app/Screens/signin_english.dart';
 import 'package:farmers_app/Screens/signin_mar.dart';
-import 'package:flutter/material.dart';
+import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_card.dart';
 
 class ListingsEnglishScreen extends StatefulWidget {
   const ListingsEnglishScreen({super.key});
@@ -148,7 +151,9 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                   children: [
                     SizedBox(
                         height: screenHeight * 0.03), // 3% of screen height
-                    InkWell(
+                    CustomCard(
+                      imagePath: 'assets/images/PM_Samman.jpg',
+                      title: 'Pradhan Mantri Kisan Samman Nidhi',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -157,67 +162,58 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                           ),
                         );
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.0),
-                          border: Border.all(color: Colors.black),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                              screenWidth * 0.03), // Scaled padding
-                          child: Column(
-                            children: [
-                              const Text(
-                                'Pradhan Mantri Kisan Samman Nidhi',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFF2C2E35),
-                                ),
-                              ),
-                              SizedBox(height: screenHeight * 0.015),
-                              Image.network(
-                                'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq5z',
-                                width: screenWidth * 0.8, // 80% of screen width
-                                height:
-                                    screenHeight * 0.2, // 20% of screen height
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
                     SizedBox(height: screenHeight * 0.03),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(screenWidth * 0.03),
-                        child: Column(
-                          children: [
-                            const Text(
-                              'Pradhan Mantri Kisan MaanDhan Yojana',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xFF2C2E35),
-                              ),
-                            ),
-                            SizedBox(height: screenHeight * 0.015),
-                            Image.network(
-                              'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq50',
-                              width: screenWidth * 0.8,
-                              height: screenHeight * 0.2,
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        ),
-                      ),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_MaanDhan.jpg',
+                      title: 'Pradhan Mantri Kisan MaanDhan Yojana',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsMaandhanEnglish(),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_CreditCard.jpg',
+                      title: 'Kisan Credit Card Scheme',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsKisanCreditCardEnglish(),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_RKVY.jpg',
+                      title: 'Rashtriya Krishi Vikas Yojana',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_FasalBima.jpg',
+                      title: 'Pradhan Mantri Fasal Bima Yojana',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/Soil_HealthCard.jpg',
+                      title: 'Soil Health Card Scheme',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
                     ),
                   ],
                 ),

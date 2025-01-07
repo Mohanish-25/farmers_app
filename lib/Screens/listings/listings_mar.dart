@@ -175,7 +175,15 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                     CustomCard(
                       imagePath: 'assets/images/PM_CreditCard.jpg',
                       title: 'किसान क्रेडिट कार्ड योजना',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsCreditCardMarathi(),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(

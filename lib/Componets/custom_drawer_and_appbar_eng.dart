@@ -4,24 +4,24 @@ import 'package:farmers_app/Screens/signin/signin_eng.dart';
 import 'package:farmers_app/Screens/signin/signin_mar.dart';
 import 'package:farmers_app/Componets/header.dart';
 
-class CustomDrawerAppBar extends StatefulWidget {
+class CustomDrawerAppBarEng extends StatefulWidget {
   final Function() onBackPressed;
 
-  const CustomDrawerAppBar({
+  const CustomDrawerAppBarEng({
     Key? key,
     required this.onBackPressed,
   }) : super(key: key);
 
   // Modified static method
   static Widget buildDrawer(BuildContext context) {
-    return _DrawerContent();
+    return _DrawerContentEng();
   }
 
   @override
-  State<CustomDrawerAppBar> createState() => _CustomDrawerAppBarState();
+  State<CustomDrawerAppBarEng> createState() => _CustomDrawerAppBarEngState();
 }
 
-class _CustomDrawerAppBarState extends State<CustomDrawerAppBar> {
+class _CustomDrawerAppBarEngState extends State<CustomDrawerAppBarEng> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -57,12 +57,12 @@ class _CustomDrawerAppBarState extends State<CustomDrawerAppBar> {
   }
 }
 
-class _DrawerContent extends StatefulWidget {
+class _DrawerContentEng extends StatefulWidget {
   @override
-  _DrawerContentState createState() => _DrawerContentState();
+  _DrawerContentEngState createState() => _DrawerContentEngState();
 }
 
-class _DrawerContentState extends State<_DrawerContent> {
+class _DrawerContentEngState extends State<_DrawerContentEng> {
   bool _isEnglishSelected = true;
 
   Widget _buildDrawerItem(String title) {
@@ -112,11 +112,11 @@ class _DrawerContentState extends State<_DrawerContent> {
                   children: [
                     const Text('Marathi', style: TextStyle(fontSize: 18)),
                     Radio<bool>(
-                      value: true,
+                      value: false,
                       groupValue: _isEnglishSelected,
                       onChanged: (value) {
                         setState(() {
-                          _isEnglishSelected = value!;
+                          _isEnglishSelected = !value!;
                         });
                         Navigator.pushAndRemoveUntil(
                           context,
@@ -134,7 +134,7 @@ class _DrawerContentState extends State<_DrawerContent> {
                   children: [
                     const Text('English', style: TextStyle(fontSize: 18)),
                     Radio<bool>(
-                      value: false,
+                      value: true,
                       groupValue: _isEnglishSelected,
                       onChanged: (value) {
                         setState(() {
@@ -154,10 +154,10 @@ class _DrawerContentState extends State<_DrawerContent> {
               ],
             ),
           ),
-          _buildDrawerItem('माझं प्रोफाईल'),
-          _buildDrawerItem('संपादन'),
-          _buildDrawerItem('सामान्य प्रश्न'),
-          _buildDrawerItem('नियम आणि अटी'),
+          _buildDrawerItem('My Profile'),
+          _buildDrawerItem('Edit'),
+          _buildDrawerItem('FAQ'),
+          _buildDrawerItem('Terms and Conditions'),
           _buildDrawerItem('NSS PESMCOE'),
           ListTile(
             leading: const Icon(Icons.logout),

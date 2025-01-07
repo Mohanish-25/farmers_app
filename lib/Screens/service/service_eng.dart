@@ -1,4 +1,4 @@
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_eng.dart';
 import 'package:farmers_app/Screens/listings/listings_eng.dart';
 import 'package:flutter/material.dart';
 
@@ -26,81 +26,71 @@ class ServiceEnglishScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      endDrawer: CustomDrawerAppBarEng.buildDrawer(context),
       body: Column(
         children: [
-          const Header(),
-
-          // Top Green Bar
-          Container(
-            color: const Color(0xFFB2FFB7),
-            padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.02,
-              vertical: screenHeight * 0.004,
-            ),
-            height: screenHeight * 0.05,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
+          CustomDrawerAppBarEng(
+            onBackPressed: () => Navigator.pop(context),
           ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // Choose Service Text
+                  Padding(
+                    padding: EdgeInsets.only(top: screenHeight * 0.05),
+                    child: Text(
+                      'Choose your Service',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: screenWidth * 0.07,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
 
-          // Choose Service Text
-          Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.05),
-            child: Text(
-              'Choose your Service',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: screenWidth * 0.07,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+                  // Service Options
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.08,
+                      vertical: screenHeight * 0.05,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildServiceButton(
+                          context,
+                          'Government\nSchemes',
+                          isGovernmentSchemeSelected,
+                          (isSelected) {
+                            if (isSelected) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ListingsEnglishScreen(),
+                                ),
+                              );
+                            }
+                            onGovernmentSchemeSelect?.call(isSelected);
+                          },
+                        ),
+                        _buildServiceButton(
+                          context,
+                          'E-Learning',
+                          isELearningSelected,
+                          onELearningSelect,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Continue Button
+                ],
               ),
             ),
           ),
-
-          // Service Options
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.08,
-              vertical: screenHeight * 0.05,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildServiceButton(
-                  context,
-                  'Government\nSchemes',
-                  isGovernmentSchemeSelected,
-                  (isSelected) {
-                    if (isSelected) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ListingsEnglishScreen(),
-                        ),
-                      );
-                    }
-                    onGovernmentSchemeSelect?.call(isSelected);
-                  },
-                ),
-                _buildServiceButton(
-                  context,
-                  'E-Learning',
-                  isELearningSelected,
-                  onELearningSelect,
-                ),
-              ],
-            ),
-          ),
-
-          // Continue Button
         ],
       ),
     );

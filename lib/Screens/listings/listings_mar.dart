@@ -2,6 +2,7 @@ import 'package:farmers_app/Componets/custom_card.dart';
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_creditcard_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_fasalbima_marathi.dart';
+import 'package:farmers_app/Screens/marathi_details_screens/details_maandhan_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_samman_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_soilhealth_marathi.dart';
 import 'package:farmers_app/Screens/select_language.dart';
@@ -169,7 +170,13 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                       imagePath: 'assets/images/PM_MaanDhan.jpg',
                       title: 'प्रधानमंत्री किसान मानधन योजना',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsMaandhanMarathi(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),

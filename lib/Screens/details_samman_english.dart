@@ -6,6 +6,9 @@ class DetailsSammanEnglish extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -14,8 +17,8 @@ class DetailsSammanEnglish extends StatelessWidget {
             const Header(),
             Container(
               color: const Color(0xFFB2FFB7),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back),
@@ -36,13 +39,19 @@ class DetailsSammanEnglish extends StatelessWidget {
               ),
             ),
             const BannerSection(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: TitleSection(),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.04,
+                vertical: screenHeight * 0.02,
+              ),
+              child: const TitleSection(),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: ProductOverview(),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.04,
+                vertical: screenHeight * 0.02,
+              ),
+              child: const ProductOverview(),
             ),
           ],
         ),
@@ -56,16 +65,18 @@ class BannerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 24),
+          margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.network(
             'https://dashboard.codeparrot.ai/api/assets/Z3u5gUjX1HzWCCiC',
-            width: 346.77,
-            height: 198,
+            width: screenWidth * 0.9,
+            height: screenWidth * 0.5,
             fit: BoxFit.cover,
           ),
         ),
@@ -79,8 +90,10 @@ class TitleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      width: 328,
+      width: screenWidth * 0.9,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -136,8 +149,10 @@ class ProductOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -217,7 +232,7 @@ class ProductOverview extends StatelessWidget {
           fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: isStepHeader ? FontWeight.w600 : FontWeight.w400,
-          color: Color(0xFF4C4C4C),
+          color: const Color(0xFF4C4C4C),
           height: 1.43,
           letterSpacing: 0.1,
         ),

@@ -13,8 +13,23 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the width of the screen
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Define responsive dimensions
+    final logoWidth =
+        screenWidth * 0.1; // College logo width as 10% of screen width
+    final nssLogoWidth =
+        screenWidth * 0.14; // NSS logo width as 14% of screen width
+    final spacingBetweenLogos =
+        screenWidth * 0.05; // Spacing as 5% of screen width
+    final textFontSize = screenWidth * 0.06; // Font size as 6% of screen width
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 16.0),
+      padding: EdgeInsets.symmetric(
+        horizontal: screenWidth * 0.07, // Padding as 7% of screen width
+        vertical: 16.0,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,40 +38,44 @@ class Header extends StatelessWidget {
             children: [
               Image.asset(
                 collegeLogo,
-                width: 37,
-                height: 50.21,
+                width: logoWidth,
+                height: logoWidth * 1.35, // Maintain aspect ratio
                 fit: BoxFit.contain,
               ),
-              const SizedBox(width: 41),
-              const Text(
-                'PESMCOE',
-                style: TextStyle(
-                  fontFamily: 'Poppins-SemiBold',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.15,
-                  color: Colors.black,
-                  height: 1.2,
-                ),
-              ),
-              const SizedBox(width: 8),
-              const Text(
-                'NSS UNIT',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.15,
-                  color: Color(0xFF132672),
-                  height: 1.2,
-                ),
+              SizedBox(width: spacingBetweenLogos),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'PESMCOE ',
+                    style: TextStyle(
+                      fontFamily: 'Poppins-SemiBold',
+                      fontSize: textFontSize,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 0.15,
+                      color: Colors.black,
+                      height: 1.2,
+                    ),
+                  ), // Adjust spacing between text
+                  Text(
+                    'NSS UNIT',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: textFontSize,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.15,
+                      color: const Color(0xFF132672),
+                      height: 1.2,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
           Image.network(
             nssLogo,
-            width: 52.54,
-            height: 59,
+            width: nssLogoWidth,
+            height: nssLogoWidth * 1.1, // Maintain aspect ratio
             fit: BoxFit.contain,
           ),
         ],

@@ -14,22 +14,27 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Screen dimensions
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double paddingHorizontal = screenWidth * 0.05; // 5% padding
+
     return Scaffold(
       endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage('https://example.com/background.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 backgroundImage: NetworkImage('https://example.com/user.jpg'),
               ),
-              accountName: Text('User'),
+              accountName: const Text('User'),
               accountEmail: null,
             ),
             ListTile(
@@ -39,10 +44,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text(
-                        'Marathi',
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      const Text('Marathi', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
                         value: false,
                         groupValue: _isEnglishSelected,
@@ -57,10 +59,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text(
-                        'English',
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      const Text('English', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
                         value: true,
                         groupValue: _isEnglishSelected,
@@ -82,12 +81,8 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
             _buildDrawerItem('NSS PESMCOE'),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text(
-                'Logout',
-                style: TextStyle(fontSize: 18),
-              ),
+              title: const Text('Logout', style: TextStyle(fontSize: 18)),
               onTap: () {
-                // Handle Logout tap
                 Navigator.pop(context);
               },
             ),
@@ -96,13 +91,11 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
       ),
       body: Column(
         children: [
-          // Header with logos and title
           const Header(),
-          // Top Bar with back button and menu
           Container(
-            height: 50,
+            height: screenHeight * 0.05, // 6% of screen height
             color: const Color(0xFFB2FFB7),
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: EdgeInsets.symmetric(horizontal: paddingHorizontal / 4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -123,16 +116,15 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
               ],
             ),
           ),
-
-          // Content
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 20),
+                    SizedBox(
+                        height: screenHeight * 0.03), // 3% of screen height
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -148,23 +140,25 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                           border: Border.all(color: Colors.black),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(
+                              screenWidth * 0.03), // Scaled padding
                           child: Column(
                             children: [
                               const Text(
                                 'Pradhan Mantri Kisan Samman Nidhi',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xFF2C2E35),
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              SizedBox(height: screenHeight * 0.015),
                               Image.network(
                                 'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq5z',
-                                width: 309,
-                                height: 174,
+                                width: screenWidth * 0.8, // 80% of screen width
+                                height:
+                                    screenHeight * 0.2, // 20% of screen height
                                 fit: BoxFit.cover,
                               ),
                             ],
@@ -172,30 +166,30 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: screenHeight * 0.03),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5.0),
                         border: Border.all(color: Colors.black),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: EdgeInsets.all(screenWidth * 0.03),
                         child: Column(
                           children: [
                             const Text(
                               'Pradhan Mantri Kisan MaanDhan Yojana',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xFF2C2E35),
                               ),
                             ),
-                            const SizedBox(height: 10),
+                            SizedBox(height: screenHeight * 0.015),
                             Image.network(
                               'https://dashboard.codeparrot.ai/api/assets/Z3upqnwdoACPgq50',
-                              width: 309,
-                              height: 166,
+                              width: screenWidth * 0.8,
+                              height: screenHeight * 0.2,
                               fit: BoxFit.cover,
                             ),
                           ],
@@ -217,21 +211,17 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
       title: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          border:
-              Border.all(color: Colors.grey), // Optional: Add a border color
+          border: Border.all(color: Colors.grey),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(
-              8.0), // Optional: Add padding inside the border
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             title,
             style: const TextStyle(fontSize: 18),
           ),
         ),
       ),
-      onTap: () {
-        // Handle item tap
-      },
+      onTap: () {},
     );
   }
 }

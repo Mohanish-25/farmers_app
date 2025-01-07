@@ -1,6 +1,7 @@
 import 'package:farmers_app/Componets/custom_card.dart';
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_creditcard_marathi.dart';
+import 'package:farmers_app/Screens/marathi_details_screens/details_fasalbima_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_samman_marathi.dart';
 import 'package:farmers_app/Screens/select_language.dart';
 import 'package:farmers_app/Screens/signin/signin_eng.dart';
@@ -174,15 +175,7 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                     CustomCard(
                       imagePath: 'assets/images/PM_CreditCard.jpg',
                       title: 'किसान क्रेडिट कार्ड योजना',
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const DetailsKisanCreditCardMarathi(),
-                          ),
-                        );
-                      },
+                      onTap: () {},
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
@@ -197,7 +190,13 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                       imagePath: 'assets/images/PM_FasalBima.jpg',
                       title: 'प्रधानमंत्री फसल बीमा योजना',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsFasalBimaMarathi(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),

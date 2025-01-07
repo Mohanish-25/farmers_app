@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/header.dart';
-import 'package:farmers_app/Screens/Details_samman_english.dart';
+import 'package:farmers_app/Screens/details_samman_marathi.dart';
 import 'package:flutter/material.dart';
 
 class ListingsMarathiScreen extends StatefulWidget {
@@ -127,12 +127,12 @@ class _ListingsEnglishScreenState extends State<ListingsMarathiScreen> {
                         height: screenHeight * 0.03), // 3% of screen height
                     InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const DetailsSammanMarathi(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailsSammanMarathi(),
+                          ),
+                        );
                       },
                       child: Container(
                         decoration: BoxDecoration(

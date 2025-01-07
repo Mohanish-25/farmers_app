@@ -169,6 +169,38 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                         // Add your onTap action here
                       },
                     ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_CreditCard.jpg',
+                      title: 'किसान क्रेडिट कार्ड योजना',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_RKVY.jpg',
+                      title: 'राष्ट्रीय कृषी विकास योजना',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/PM_FasalBima.jpg',
+                      title: 'प्रधानमंत्री फसल बीमा योजना',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.03),
+                    CustomCard(
+                      imagePath: 'assets/images/Soil_HealthCard.jpg',
+                      title: 'माती आरोग्य पत्रक योजना',
+                      onTap: () {
+                        // Add your onTap action here
+                      },
+                    ),
                     // Add more CustomCard widgets as needed
                   ],
                 ),

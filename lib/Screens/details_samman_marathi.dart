@@ -73,8 +73,8 @@ class BannerSection extends StatelessWidget {
         Container(
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
-          child: Image.network(
-            'https://dashboard.codeparrot.ai/api/assets/Z3u5gUjX1HzWCCiC',
+          child: Image.asset(
+            'assets/images/PM_Samman.jpg',
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -193,7 +193,7 @@ class ProductOverview extends StatelessWidget {
       '• बँक खात्याचा तपशील (लाभांच्या थेट हस्तांतरणासाठी).',
       '• मोबाइल क्रमांक (ओटीपी पडताळणीसाठी आपल्या आधारशी जोडलेला).',
       'स्टेप 2: पीएम-किसान पोर्टलला भेट द्या',
-      '1. पीएम-किसान च्या अधिकृत संकेतस्थळावर जा: https://pmkisan.gov.in/.',
+      '1. पीएम-किसान च्या अधिकृत संकेतस्थळावर जा.',
       '2. मुखपृष्ठावरील "शेतकरी कॉर्नर" वर नेव्हिगेट करा.',
       'स्टेप 3: नवीन शेतकरी नोंदणी',
       '1. शेतकरी कोपर् यात "नवीन शेतकरी नोंदणी" वर क्लिक करा.',

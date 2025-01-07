@@ -2,7 +2,7 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Componets/illustration_section.dart';
 import 'package:farmers_app/Componets/sign_in_form_mar.dart';
 import 'package:farmers_app/Componets/skip_button_mar.dart';
-import 'package:farmers_app/Screens/Service_english.dart';
+import 'package:farmers_app/Screens/service_marathi.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -36,7 +36,7 @@ class SignInMarathi extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const ServiceEnglishScreen()),
+                                    const ServiceMarathiScreen()),
                           );
                         },
                       ),

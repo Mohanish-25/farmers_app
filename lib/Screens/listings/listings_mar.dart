@@ -3,6 +3,7 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_creditcard_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_fasalbima_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_samman_marathi.dart';
+import 'package:farmers_app/Screens/marathi_details_screens/details_soilhealth_marathi.dart';
 import 'package:farmers_app/Screens/select_language.dart';
 import 'package:farmers_app/Screens/signin/signin_eng.dart';
 import 'package:farmers_app/Screens/signin/signin_mar.dart';
@@ -212,7 +213,13 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                       imagePath: 'assets/images/Soil_HealthCard.jpg',
                       title: 'माती आरोग्य पत्रक योजना',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsSoilHealthCardMarathi(),
+                          ),
+                        );
                       },
                     ),
                     // Add more CustomCard widgets as needed

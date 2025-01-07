@@ -30,7 +30,7 @@ class DetailsRKVYEnglish extends StatelessWidget {
                   const Text(
                     'Details',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                       color: Color(0xFF2C2E35),

@@ -160,7 +160,7 @@ class ProductOverview extends StatelessWidget {
             'उत्पादन सिंहावलोकन',
             style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),

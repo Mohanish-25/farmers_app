@@ -90,17 +90,30 @@ class _DrawerContentState extends State<_DrawerContent> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const UserAccountsDrawerHeader(
-            decoration: BoxDecoration(
+          UserAccountsDrawerHeader(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('https://example.com/background.jpg'),
+                image: AssetImage('assets/images/drawer_background1.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage('https://example.com/user.jpg'),
+            currentAccountPicture: Container(
+              width: double.infinity,
+              child: Center(
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/Profile_Photo.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
             ),
-            accountName: Text('User'),
+            accountName: const Text('किसान', style: TextStyle(fontSize: 20)),
             accountEmail: null,
           ),
           ListTile(
@@ -110,7 +123,7 @@ class _DrawerContentState extends State<_DrawerContent> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('Marathi', style: TextStyle(fontSize: 18)),
+                    const Text('मराठी', style: TextStyle(fontSize: 18)),
                     Radio<bool>(
                       value: true,
                       groupValue: _isEnglishSelected,
@@ -132,7 +145,7 @@ class _DrawerContentState extends State<_DrawerContent> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('English', style: TextStyle(fontSize: 18)),
+                    const Text('इंग्रजी', style: TextStyle(fontSize: 18)),
                     Radio<bool>(
                       value: false,
                       groupValue: _isEnglishSelected,

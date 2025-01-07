@@ -3,6 +3,7 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_creditcard_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_fasalbima_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_maandhan_marathi.dart';
+import 'package:farmers_app/Screens/marathi_details_screens/details_rkvy_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_samman_marathi.dart';
 import 'package:farmers_app/Screens/marathi_details_screens/details_soilhealth_marathi.dart';
 import 'package:farmers_app/Screens/select_language.dart';
@@ -198,7 +199,12 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                       imagePath: 'assets/images/PM_RKVY.jpg',
                       title: 'राष्ट्रीय कृषी विकास योजना',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailsRKVYMarathi(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),

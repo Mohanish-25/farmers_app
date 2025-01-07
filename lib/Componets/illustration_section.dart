@@ -8,8 +8,7 @@ class IllustrationSection extends StatelessWidget {
 
   const IllustrationSection({
     Key? key,
-    this.imagePath =
-        'https://dashboard.codeparrot.ai/api/assets/Z3uNNEjX1HzWCCfV',
+    this.imagePath = 'assets/images/Illustration.png',
     this.mainTitle = 'Kisano ko',
     this.subtitle = 'Saath Jode',
     this.description = 'Aadhik Vikas ki Aur Badhe!',
@@ -17,69 +16,81 @@ class IllustrationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // Define responsive dimensions
+    final imageWidth = screenWidth * 0.4; // 40% of screen width
+    final imageHeight = screenHeight * 0.2; // 20% of screen height
+    final mainTitleFontSize = screenWidth * 0.1; // 10% of screen width
+    final subtitleFontSize = screenWidth * 0.08; // 8% of screen width
+    final descriptionFontSize = screenWidth * 0.05; // 5% of screen width
+
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding:
+          EdgeInsets.symmetric(horizontal: screenWidth * 0.04), // 4% padding
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
             child: Container(
-              width: 163,
-              height: 123,
+              width: imageWidth,
+              height: imageHeight,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Center(
-                child: Image.network(
+                child: Image.asset(
                   imagePath!,
-                  width: 128,
-                  height: 110,
+                  width: imageWidth,
+                  height: imageHeight,
                   fit: BoxFit.contain,
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: screenHeight * 0.02), // 2% of screen height
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 mainTitle!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 42,
+                  fontSize: mainTitleFontSize,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.15,
                   height: 1.2,
-                  color: Color(0xFF12723D),
+                  color: const Color(0xFF12723D),
                 ),
               ),
               Text(
                 subtitle!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 32,
+                  fontSize: subtitleFontSize,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0.15,
                   height: 1.2,
-                  color: Color(0xFFFF7D24),
+                  color: const Color(0xFFFF7D24),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: screenHeight * 0.01), // 1% of screen height
           Text(
             description!,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 22,
+              fontSize: descriptionFontSize,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.15,
               height: 1.82, // 40px line height / 22px font size
-              color: Color(0xFF2C2E35),
+              color: const Color(0xFF2C2E35),
             ),
           ),
         ],

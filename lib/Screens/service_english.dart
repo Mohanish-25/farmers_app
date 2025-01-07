@@ -101,34 +101,6 @@ class ServiceEnglishScreen extends StatelessWidget {
           ),
 
           // Continue Button
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.12),
-            child: SizedBox(
-              width: double.infinity,
-              height: screenHeight * 0.07,
-              child: ElevatedButton(
-                onPressed: onContinue,
-                style: ButtonStyle(
-                  backgroundColor:
-                      WidgetStateProperty.all<Color>(const Color(0xFF2B9846)),
-                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ),
-                child: Text(
-                  'Continue',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: screenWidth * 0.045,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );

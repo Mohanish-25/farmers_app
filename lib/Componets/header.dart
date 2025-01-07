@@ -20,7 +20,7 @@ class Header extends StatelessWidget {
     final logoWidth =
         screenWidth * 0.10; // College logo width as 10% of screen width
     final nssLogoWidth =
-        screenWidth * 0.15; // NSS logo width as 14% of screen width
+        screenWidth * 0.145; // NSS logo width as 14% of screen width
     final spacingBetweenLogos =
         screenWidth * 0.05; // Spacing as 5% of screen width
     final textFontSize = screenWidth * 0.06; // Font size as 6% of screen width
@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(
           screenWidth * 0.05, screenHeight * 0.03, screenWidth * 0.05, 0.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(

@@ -1,5 +1,6 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/signin_english.dart';
+import 'package:farmers_app/Screens/signin_mar.dart';
 import 'package:flutter/material.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -77,6 +78,11 @@ class LanguageScreen extends StatelessWidget {
                         text: 'मराठी',
                         onTap: () {
                           // Handle Marathi selection
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignInMarathi()),
+                          );
                         },
                       ),
                     ],

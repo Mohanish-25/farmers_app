@@ -1,9 +1,9 @@
-import 'package:farmers_app/Screens/Service_english.dart';
-import 'package:flutter/material.dart';
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Componets/illustration_section.dart';
-import 'package:farmers_app/Componets/sign_in_form.dart';
-import 'package:farmers_app/Componets/skip_button.dart';
+import 'package:farmers_app/Componets/sign_in_form_eng.dart';
+import 'package:farmers_app/Componets/skip_button_eng.dart';
+import 'package:farmers_app/Screens/Service_english.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SignInEnglish extends StatelessWidget {

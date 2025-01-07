@@ -8,7 +8,8 @@ class IllustrationSection extends StatelessWidget {
 
   const IllustrationSection({
     Key? key,
-    this.imagePath = 'https://dashboard.codeparrot.ai/api/assets/Z3uNNEjX1HzWCCfV',
+    this.imagePath =
+        'https://dashboard.codeparrot.ai/api/assets/Z3uNNEjX1HzWCCfV',
     this.mainTitle = 'Kisano ko',
     this.subtitle = 'Saath Jode',
     this.description = 'Aadhik Vikas ki Aur Badhe!',
@@ -86,4 +87,3 @@ class IllustrationSection extends StatelessWidget {
     );
   }
 }
-

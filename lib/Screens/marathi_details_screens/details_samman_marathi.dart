@@ -1,5 +1,6 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsSammanMarathi extends StatelessWidget {
   const DetailsSammanMarathi({super.key});
@@ -29,7 +30,7 @@ class DetailsSammanMarathi extends StatelessWidget {
                   const Text(
                     'तपशील',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                       color: Color(0xFF2C2E35),
@@ -53,10 +54,25 @@ class DetailsSammanMarathi extends StatelessWidget {
               ),
               child: const ProductOverview(),
             ),
+            Padding(
+              padding: EdgeInsets.all(screenWidth * 0.05),
+              child: const ElevatedButton(
+                onPressed: _launchUrl,
+                child: Text('अर्ज करा'),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  static final Uri _url = Uri.parse('https://pmkisan.gov.in/');
+
+  static Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 }
 
@@ -102,7 +118,7 @@ class TitleSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
-                'Category Name',
+                'श्रेणी नाव',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14,
@@ -118,7 +134,7 @@ class TitleSection extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               const Text(
-                'Brand Name',
+                'ब्रँड नाव',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14,

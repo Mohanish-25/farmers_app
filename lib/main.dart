@@ -1,10 +1,15 @@
-import 'package:farmers_app/Screens/Service_english.dart';
-import 'package:farmers_app/Screens/select_language.dart';
-import 'package:farmers_app/Screens/signin_english.dart';
 import 'package:farmers_app/Screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  // Set the status bar to be transparent
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness:
+        Brightness.dark, // For dark icons on light background
+  ));
+
   runApp(const MyApp());
 }
 

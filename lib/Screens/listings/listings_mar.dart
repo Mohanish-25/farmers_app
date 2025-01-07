@@ -1,24 +1,19 @@
-import 'package:farmers_app/Screens/details_fasalbima_eng.dart';
-import 'package:farmers_app/Screens/details_maandhan_english.dart';
-import 'package:farmers_app/Screens/details_rkvy_eng.dart';
-import 'package:farmers_app/Screens/details_soilhealth_eng.dart';
-import 'package:farmers_app/Screens/pm_creditcard_eng.dart';
-import 'package:flutter/material.dart';
-import 'package:farmers_app/Screens/details_samman_english.dart';
-import 'package:farmers_app/Screens/select_language.dart';
-import 'package:farmers_app/Screens/signin_english.dart';
-import 'package:farmers_app/Screens/signin_mar.dart';
-import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Componets/custom_card.dart';
+import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Screens/marathi_details_screens/details_samman_marathi.dart';
+import 'package:farmers_app/Screens/select_language.dart';
+import 'package:farmers_app/Screens/signin/signin_eng.dart';
+import 'package:farmers_app/Screens/signin/signin_mar.dart';
+import 'package:flutter/material.dart';
 
-class ListingsEnglishScreen extends StatefulWidget {
-  const ListingsEnglishScreen({super.key});
+class ListingsMarathiScreen extends StatefulWidget {
+  const ListingsMarathiScreen({super.key});
 
   @override
-  _ListingsEnglishScreenState createState() => _ListingsEnglishScreenState();
+  _ListingsMarathiScreenState createState() => _ListingsMarathiScreenState();
 }
 
-class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
+class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
   bool _isEnglishSelected = true;
 
   @override
@@ -55,7 +50,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                     children: [
                       const Text('Marathi', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
-                        value: false,
+                        value: true,
                         groupValue: _isEnglishSelected,
                         onChanged: (value) {
                           setState(() {
@@ -77,7 +72,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                     children: [
                       const Text('English', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
-                        value: true,
+                        value: false,
                         groupValue: _isEnglishSelected,
                         onChanged: (value) {
                           setState(() {
@@ -97,10 +92,10 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                 ],
               ),
             ),
-            _buildDrawerItem('My Profile'),
-            _buildDrawerItem('Documents'),
-            _buildDrawerItem('FAQ'),
-            _buildDrawerItem('Terms & Conditions'),
+            _buildDrawerItem('माझं प्रोफाईल'),
+            _buildDrawerItem('संपादन'),
+            _buildDrawerItem('सामान्य प्रश्न'),
+            _buildDrawerItem('नियम आणि अटी'),
             _buildDrawerItem('NSS PESMCOE'),
             ListTile(
               leading: const Icon(Icons.logout),
@@ -156,12 +151,12 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                         height: screenHeight * 0.03), // 3% of screen height
                     CustomCard(
                       imagePath: 'assets/images/PM_Samman.jpg',
-                      title: 'Pradhan Mantri Kisan Samman Nidhi',
+                      title: 'प्रधानमंत्री किसान सन्मान निधी',
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DetailsSammanEnglish(),
+                            builder: (context) => const DetailsSammanMarathi(),
                           ),
                         );
                       },
@@ -169,72 +164,44 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
                       imagePath: 'assets/images/PM_MaanDhan.jpg',
-                      title: 'Pradhan Mantri Kisan MaanDhan Yojana',
+                      title: 'प्रधानमंत्री किसान मानधन योजना',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const DetailsMaandhanEnglish(),
-                          ),
-                        );
+                        // Add your onTap action here
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
                       imagePath: 'assets/images/PM_CreditCard.jpg',
-                      title: 'Kisan Credit Card Scheme',
+                      title: 'किसान क्रेडिट कार्ड योजना',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const DetailsKisanCreditCardEnglish(),
-                          ),
-                        );
+                        // Add your onTap action here
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
                       imagePath: 'assets/images/PM_RKVY.jpg',
-                      title: 'Rashtriya Krishi Vikas Yojana',
+                      title: 'राष्ट्रीय कृषी विकास योजना',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DetailsRKVYEnglish(),
-                          ),
-                        );
+                        // Add your onTap action here
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
                       imagePath: 'assets/images/PM_FasalBima.jpg',
-                      title: 'Pradhan Mantri Fasal Bima Yojana',
+                      title: 'प्रधानमंत्री फसल बीमा योजना',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const DetailsFasalBimaEnglish(),
-                          ),
-                        );
+                        // Add your onTap action here
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     CustomCard(
                       imagePath: 'assets/images/Soil_HealthCard.jpg',
-                      title: 'Soil Health Card Scheme',
+                      title: 'माती आरोग्य पत्रक योजना',
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const DetailsSoilHealthCardEnglish(),
-                          ),
-                        );
+                        // Add your onTap action here
                       },
                     ),
+                    // Add more CustomCard widgets as needed
                   ],
                 ),
               ),

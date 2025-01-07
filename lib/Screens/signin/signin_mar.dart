@@ -1,13 +1,13 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Componets/illustration_section.dart';
-import 'package:farmers_app/Componets/sign_in_form_eng.dart';
-import 'package:farmers_app/Componets/skip_button_eng.dart';
-import 'package:farmers_app/Screens/Service_english.dart';
+import 'package:farmers_app/Componets/sign_in_form_mar.dart';
+import 'package:farmers_app/Componets/skip_button_mar.dart';
+import 'package:farmers_app/Screens/service/service_marathi.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class SignInEnglish extends StatelessWidget {
-  const SignInEnglish({super.key});
+class SignInMarathi extends StatelessWidget {
+  const SignInMarathi({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +29,14 @@ class SignInEnglish extends StatelessWidget {
                   children: [
                     Positioned(
                       right: 16,
-                      child: SkipButton(
+                      child: SkipMarathiButton(
                         onPressed: () {
                           // Handle skip button press
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const ServiceEnglishScreen()),
+                                    const ServiceMarathiScreen()),
                           );
                         },
                       ),
@@ -46,7 +46,7 @@ class SignInEnglish extends StatelessWidget {
                         vertical: screenSize.height * 0.02,
                         horizontal: screenSize.width * 0.05,
                       ),
-                      child: SignInForm(
+                      child: SignInFormMarathi(
                         onSubmit: (mobile, otp) {
                           // Show toast message
                           WidgetsBinding.instance.addPostFrameCallback((_) {

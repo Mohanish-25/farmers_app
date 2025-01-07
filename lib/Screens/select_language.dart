@@ -1,6 +1,6 @@
 import 'package:farmers_app/Componets/header.dart';
-import 'package:farmers_app/Screens/signin_english.dart';
-import 'package:farmers_app/Screens/signin_mar.dart';
+import 'package:farmers_app/Screens/signin/signin_eng.dart';
+import 'package:farmers_app/Screens/signin/signin_mar.dart';
 import 'package:flutter/material.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -156,4 +156,3 @@ class _LanguageButton extends StatelessWidget {
 // 3. Use a state management solution (Provider/Bloc) to manage language changes
 // 4. Wrap the app with a localization delegate
 // 5. Access translations using the current locale
-

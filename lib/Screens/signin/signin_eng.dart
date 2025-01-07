@@ -1,13 +1,13 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Componets/illustration_section.dart';
-import 'package:farmers_app/Componets/sign_in_form_mar.dart';
-import 'package:farmers_app/Componets/skip_button_mar.dart';
-import 'package:farmers_app/Screens/service_marathi.dart';
+import 'package:farmers_app/Componets/sign_in_form_eng.dart';
+import 'package:farmers_app/Componets/skip_button_eng.dart';
+import 'package:farmers_app/Screens/service/service_eng.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class SignInMarathi extends StatelessWidget {
-  const SignInMarathi({super.key});
+class SignInEnglish extends StatelessWidget {
+  const SignInEnglish({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +29,14 @@ class SignInMarathi extends StatelessWidget {
                   children: [
                     Positioned(
                       right: 16,
-                      child: SkipMarathiButton(
+                      child: SkipButton(
                         onPressed: () {
                           // Handle skip button press
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const ServiceMarathiScreen()),
+                                    const ServiceEnglishScreen()),
                           );
                         },
                       ),
@@ -46,7 +46,7 @@ class SignInMarathi extends StatelessWidget {
                         vertical: screenSize.height * 0.02,
                         horizontal: screenSize.width * 0.05,
                       ),
-                      child: SignInFormMarathi(
+                      child: SignInForm(
                         onSubmit: (mobile, otp) {
                           // Show toast message
                           WidgetsBinding.instance.addPostFrameCallback((_) {

@@ -1,5 +1,7 @@
+import 'package:farmers_app/Screens/details_fasalbima_eng.dart';
 import 'package:farmers_app/Screens/details_maandhan_english.dart';
 import 'package:farmers_app/Screens/details_rkvy_eng.dart';
+import 'package:farmers_app/Screens/details_soilhealth_eng.dart';
 import 'package:farmers_app/Screens/pm_creditcard_eng.dart';
 import 'package:flutter/material.dart';
 import 'package:farmers_app/Screens/details_samman_english.dart';
@@ -210,7 +212,13 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                       imagePath: 'assets/images/PM_FasalBima.jpg',
                       title: 'Pradhan Mantri Fasal Bima Yojana',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsFasalBimaEnglish(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),
@@ -218,7 +226,13 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                       imagePath: 'assets/images/Soil_HealthCard.jpg',
                       title: 'Soil Health Card Scheme',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DetailsSoilHealthCardEnglish(),
+                          ),
+                        );
                       },
                     ),
                   ],

@@ -1,5 +1,8 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/Details_samman_english.dart';
+import 'package:farmers_app/Screens/select_language.dart';
+import 'package:farmers_app/Screens/signin_english.dart';
+import 'package:farmers_app/Screens/signin_mar.dart';
 import 'package:flutter/material.dart';
 
 class ListingsEnglishScreen extends StatefulWidget {
@@ -52,6 +55,13 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                           setState(() {
                             _isEnglishSelected = value!;
                           });
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignInMarathi(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
                         },
                       ),
                     ],
@@ -67,6 +77,13 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                           setState(() {
                             _isEnglishSelected = value!;
                           });
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignInEnglish(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
                         },
                       ),
                     ],
@@ -83,7 +100,13 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
               leading: const Icon(Icons.logout),
               title: const Text('Logout', style: TextStyle(fontSize: 18)),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LanguageScreen(),
+                  ),
+                  (Route<dynamic> route) => false,
+                );
               },
             ),
           ],

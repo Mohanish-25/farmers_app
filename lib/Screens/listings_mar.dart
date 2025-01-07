@@ -1,15 +1,18 @@
 import 'package:farmers_app/Componets/header.dart';
 import 'package:farmers_app/Screens/details_samman_marathi.dart';
+import 'package:farmers_app/Screens/select_language.dart';
+import 'package:farmers_app/Screens/signin_english.dart';
+import 'package:farmers_app/Screens/signin_mar.dart';
 import 'package:flutter/material.dart';
 
 class ListingsMarathiScreen extends StatefulWidget {
   const ListingsMarathiScreen({super.key});
 
   @override
-  _ListingsEnglishScreenState createState() => _ListingsEnglishScreenState();
+  _ListingsMarathiScreenState createState() => _ListingsMarathiScreenState();
 }
 
-class _ListingsEnglishScreenState extends State<ListingsMarathiScreen> {
+class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
   bool _isEnglishSelected = true;
 
   @override
@@ -46,12 +49,19 @@ class _ListingsEnglishScreenState extends State<ListingsMarathiScreen> {
                     children: [
                       const Text('Marathi', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
-                        value: false,
+                        value: true,
                         groupValue: _isEnglishSelected,
                         onChanged: (value) {
                           setState(() {
                             _isEnglishSelected = value!;
                           });
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignInMarathi(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
                         },
                       ),
                     ],
@@ -61,12 +71,19 @@ class _ListingsEnglishScreenState extends State<ListingsMarathiScreen> {
                     children: [
                       const Text('English', style: TextStyle(fontSize: 18)),
                       Radio<bool>(
-                        value: true,
+                        value: false,
                         groupValue: _isEnglishSelected,
                         onChanged: (value) {
                           setState(() {
                             _isEnglishSelected = value!;
                           });
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignInEnglish(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
                         },
                       ),
                     ],
@@ -83,7 +100,13 @@ class _ListingsEnglishScreenState extends State<ListingsMarathiScreen> {
               leading: const Icon(Icons.logout),
               title: const Text('Logout', style: TextStyle(fontSize: 18)),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LanguageScreen(),
+                  ),
+                  (Route<dynamic> route) => false,
+                );
               },
             ),
           ],

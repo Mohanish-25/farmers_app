@@ -24,17 +24,17 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            UserAccountsDrawerHeader(
-              decoration: const BoxDecoration(
+            const UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage('https://example.com/background.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
-              currentAccountPicture: const CircleAvatar(
+              currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage('https://example.com/user.jpg'),
               ),
-              accountName: const Text('User'),
+              accountName: Text('User'),
               accountEmail: null,
             ),
             ListTile(

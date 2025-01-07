@@ -2,8 +2,8 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailsSammanEnglish extends StatelessWidget {
-  const DetailsSammanEnglish({super.key});
+class DetailsKisanCreditCardEnglish extends StatelessWidget {
+  const DetailsKisanCreditCardEnglish({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class DetailsSammanEnglish extends StatelessWidget {
     );
   }
 
-  static final Uri _url = Uri.parse('https://pmkisan.gov.in/');
+  static final Uri _url = Uri.parse('https://www.myscheme.gov.in/schemes/kcc');
 
   static Future<void> _launchUrl() async {
     if (!await launchUrl(_url)) {
@@ -90,7 +90,7 @@ class BannerSection extends StatelessWidget {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.asset(
-            'assets/images/PM_Samman.jpg',
+            'assets/images/PM_CreditCard.jpg', // Update with the correct image path
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -146,7 +146,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)',
+            'Kisan Credit Card (KCC)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -183,7 +183,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) scheme provides financial assistance to eligible farmers across India. Here\'s a step-by-step guide to applying for the scheme:',
+            'Kisan Credit Card',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,60 +194,49 @@ class ProductOverview extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 21),
-          _buildSteps(),
+          _buildDetails(),
         ],
       ),
     );
   }
 
-  Widget _buildSteps() {
-    const steps = [
-      'Step 1: Gather Required Documents',
-      'Make sure you have:',
-      '• Aadhaar Card (mandatory for identification).',
-      '• Landholding Documents (showing your ownership of agricultural land).',
-      '• Bank Account Details (for direct transfer of benefits).',
-      '• Mobile Number (linked to your Aadhaar for OTP verification).',
-      'Step 2: Visit the PM-KISAN Portal',
-      '1. Go to the official PM-KISAN website.',
-      '2. Navigate to the "Farmer\'s Corner" on the homepage.',
-      'Step 3: New Farmer Registration',
-      '1. Click on "New Farmer Registration" in the Farmer\'s Corner.',
-      '2. Enter your Aadhaar number and select your state.',
-      '3. Fill out the registration form with personal details, landholding details, and bank account information.',
-      '4. Submit the form.',
-      'Step 4: Verification Process',
-      '1. After submission, the application is sent for verification.',
-      '2. Local authorities will verify your land records and eligibility.',
-      '3. You may be contacted if additional documents or details are required.',
-      'Step 5: Check Application Status',
-      '1. Use the "Beneficiary Status" option in the Farmer\'s Corner.',
-      '2. Enter your Aadhaar number or bank account number to track your application status.',
-      'Step 6: Receive Benefits',
-      'Once approved, the financial assistance of ₹6,000 per year (in three installments of ₹2,000 each) will be directly transferred to your registered bank account.',
-      'Important Tips',
-      '• Ensure your Aadhaar is linked to your bank account for smooth payment processing.',
-      '• If you face any issues, visit your nearest CSC (Common Service Center) for help.',
-      '• Stay updated by checking the official PM-KISAN portal regularly.',
+  Widget _buildDetails() {
+    const details = [
+      'Details:',
+      '1. The Kisan Credit Card (KCC) scheme was introduced in 1998 to provide timely credit to farmers.',
+      '2. It offers credit for crop production, post-harvest expenses, and consumption needs.',
+      '3. The card also covers investment credit for agriculture and allied activities.',
+      '4. Farmers can avail of loans at subsidized interest rates under this scheme.',
+      '5. The scheme aims to provide financial support and reduce the dependency on informal credit sources.',
+      'Eligibility:',
+      '1. All farmers, including small and marginal farmers, tenant farmers, and sharecroppers, are eligible.',
+      '2. Self Help Groups (SHGs) or Joint Liability Groups (JLGs) of farmers can also apply.',
+      '3. Farmers must have a valid Aadhaar and bank account for enrollment.',
+      '4. The credit limit is determined based on the scale of finance and the farmer\'s repayment capacity.',
+      'Benefits:',
+      '1. Provides easy access to credit for various agricultural needs.',
+      '2. Offers loans at subsidized interest rates, reducing the financial burden on farmers.',
+      '3. Ensures timely availability of funds for crop production and other expenses.',
+      '4. Encourages investment in agriculture and allied activities.',
+      '5. Reduces dependency on informal credit sources and promotes financial inclusion.',
     ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: steps.map((step) => _buildStep(step)).toList(),
+      children: details.map((detail) => _buildDetail(detail)).toList(),
     );
   }
 
-  Widget _buildStep(String step) {
-    final isStepHeader =
-        step.startsWith('Step') || step.startsWith('Important Tips');
+  Widget _buildDetail(String detail) {
+    final isDetailHeader = detail.endsWith(':');
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: Text(
-        step,
+        detail,
         style: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16,
-          fontWeight: isStepHeader ? FontWeight.w600 : FontWeight.w400,
+          fontWeight: isDetailHeader ? FontWeight.w600 : FontWeight.w400,
           color: const Color(0xFF4C4C4C),
           height: 1.43,
           letterSpacing: 0.1,

@@ -2,8 +2,8 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailsSammanEnglish extends StatelessWidget {
-  const DetailsSammanEnglish({super.key});
+class DetailsMaandhanEnglish extends StatelessWidget {
+  const DetailsMaandhanEnglish({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class BannerSection extends StatelessWidget {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.asset(
-            'assets/images/PM_Samman.jpg',
+            'assets/images/PM_MaanDhan.jpg',
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -146,7 +146,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)',
+            'PM-Kisan Maandhan Yojana',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -183,7 +183,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) scheme provides financial assistance to eligible farmers across India. Here\'s a step-by-step guide to applying for the scheme:',
+            'PM-Kisan Maandhan Yojana',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,60 +194,50 @@ class ProductOverview extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 21),
-          _buildSteps(),
+          _buildDetails(),
         ],
       ),
     );
   }
 
-  Widget _buildSteps() {
-    const steps = [
-      'Step 1: Gather Required Documents',
-      'Make sure you have:',
-      '• Aadhaar Card (mandatory for identification).',
-      '• Landholding Documents (showing your ownership of agricultural land).',
-      '• Bank Account Details (for direct transfer of benefits).',
-      '• Mobile Number (linked to your Aadhaar for OTP verification).',
-      'Step 2: Visit the PM-KISAN Portal',
-      '1. Go to the official PM-KISAN website.',
-      '2. Navigate to the "Farmer\'s Corner" on the homepage.',
-      'Step 3: New Farmer Registration',
-      '1. Click on "New Farmer Registration" in the Farmer\'s Corner.',
-      '2. Enter your Aadhaar number and select your state.',
-      '3. Fill out the registration form with personal details, landholding details, and bank account information.',
-      '4. Submit the form.',
-      'Step 4: Verification Process',
-      '1. After submission, the application is sent for verification.',
-      '2. Local authorities will verify your land records and eligibility.',
-      '3. You may be contacted if additional documents or details are required.',
-      'Step 5: Check Application Status',
-      '1. Use the "Beneficiary Status" option in the Farmer\'s Corner.',
-      '2. Enter your Aadhaar number or bank account number to track your application status.',
-      'Step 6: Receive Benefits',
-      'Once approved, the financial assistance of ₹6,000 per year (in three installments of ₹2,000 each) will be directly transferred to your registered bank account.',
-      'Important Tips',
-      '• Ensure your Aadhaar is linked to your bank account for smooth payment processing.',
-      '• If you face any issues, visit your nearest CSC (Common Service Center) for help.',
-      '• Stay updated by checking the official PM-KISAN portal regularly.',
+  Widget _buildDetails() {
+    const details = [
+      'Details:',
+      '1. Launched in 2019, the scheme provides financial security for farmers aged 60 and above.',
+      '2. Offers a pension of ₹3,000/month for small and marginal farmers.',
+      '3. Farmers contribute a small amount between ₹55-₹200 per month, which is matched by the government.',
+      '4. The scheme aims to provide income after retirement and ensure financial stability for old-age farmers.',
+      '5. The scheme is voluntary, and enrollment requires meeting the eligibility criteria.',
+      'Eligibility:',
+      '1. Farmers aged 18-40 years can enroll and make contributions to the scheme.',
+      '2. Only farmers with land holdings up to 2 hectares are eligible.',
+      '3. Excludes institutional landholders, income taxpayers, and government pensioners.',
+      '4. Farmers must have a valid Aadhaar and bank account for enrollment.',
+      '5. Pension benefits are available only after the farmer turns 60 years old.',
+      'Benefits:',
+      '1. Ensures financial security during the old age of farmers.',
+      '2. Provides steady income of ₹3,000 per month for those who qualify.',
+      '3. Encourages savings during younger years to ensure a comfortable retirement.',
+      '4. Matching government contributions increase the savings pool.',
+      '5. Reduces financial dependency and poverty among elderly farmers.',
     ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: steps.map((step) => _buildStep(step)).toList(),
+      children: details.map((detail) => _buildDetail(detail)).toList(),
     );
   }
 
-  Widget _buildStep(String step) {
-    final isStepHeader =
-        step.startsWith('Step') || step.startsWith('Important Tips');
+  Widget _buildDetail(String detail) {
+    final isDetailHeader = detail.endsWith(':');
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: Text(
-        step,
+        detail,
         style: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16,
-          fontWeight: isStepHeader ? FontWeight.w600 : FontWeight.w400,
+          fontWeight: isDetailHeader ? FontWeight.w600 : FontWeight.w400,
           color: const Color(0xFF4C4C4C),
           height: 1.43,
           letterSpacing: 0.1,

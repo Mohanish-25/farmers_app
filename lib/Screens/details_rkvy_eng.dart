@@ -2,8 +2,8 @@ import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailsMaandhanEnglish extends StatelessWidget {
-  const DetailsMaandhanEnglish({super.key});
+class DetailsRKVYEnglish extends StatelessWidget {
+  const DetailsRKVYEnglish({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class DetailsMaandhanEnglish extends StatelessWidget {
     );
   }
 
-  static final Uri _url = Uri.parse('https://pmkisan.gov.in/');
+  static final Uri _url = Uri.parse('https://www.myscheme.gov.in/schemes/rkvy');
 
   static Future<void> _launchUrl() async {
     if (!await launchUrl(_url)) {
@@ -90,7 +90,7 @@ class BannerSection extends StatelessWidget {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.asset(
-            'assets/images/PM_MaanDhan.jpg',
+            'assets/images/PM_RKVY.jpg', // Update with the correct image path
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -146,7 +146,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'PM-Kisan Maandhan Yojana',
+            'Rashtriya Krishi Vikas Yojana (RKVY)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -183,7 +183,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'PM-Kisan Maandhan Yojana',
+            'Rashtriya Krishi Vikas Yojana (RKVY)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -203,23 +203,24 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'Details:',
-      '1. Launched in 2019, the scheme provides financial security for farmers aged 60 and above.',
-      '2. Offers a pension of ₹3,000/month for small and marginal farmers.',
-      '3. Farmers contribute a small amount between ₹55-₹200 per month, which is matched by the government.',
-      '4. The scheme aims to provide income after retirement and ensure financial stability for old-age farmers.',
-      '5. The scheme is voluntary, and enrollment requires meeting the eligibility criteria.',
+      '1. Launched in 2007 and revamped in 2017, RKVY aims to enhance agricultural productivity.',
+      '2. Focuses on encouraging the adoption of modern farming techniques and innovative practices.',
+      '3. Provides funding for agricultural infrastructure development, seed improvement, and organic farming projects.',
+      '4. Supports state-led agricultural projects with funding from the central government.',
+      '5. Works with the states to prioritize region-specific agricultural solutions and infrastructure projects.',
+      '6. Helps farmers adapt to climate change and improve agricultural resilience.',
       'Eligibility:',
-      '1. Farmers aged 18-40 years can enroll and make contributions to the scheme.',
-      '2. Only farmers with land holdings up to 2 hectares are eligible.',
-      '3. Excludes institutional landholders, income taxpayers, and government pensioners.',
-      '4. Farmers must have a valid Aadhaar and bank account for enrollment.',
-      '5. Pension benefits are available only after the farmer turns 60 years old.',
+      '1. States and Union Territories submit proposals for agricultural projects under the scheme.',
+      '2. Projects funded must align with the goal of improving agricultural productivity.',
+      '3. Farmers and farmer organizations benefit from state-led projects financed by RKVY.',
+      '4. Focus is on farmers engaged in crop production and agriculture-related infrastructure.',
+      '5. Includes funding for research and development, extension services, and farm mechanization.',
       'Benefits:',
-      '1. Ensures financial security during the old age of farmers.',
-      '2. Provides steady income of ₹3,000 per month for those who qualify.',
-      '3. Encourages savings during younger years to ensure a comfortable retirement.',
-      '4. Matching government contributions increase the savings pool.',
-      '5. Reduces financial dependency and poverty among elderly farmers.',
+      '1. Encourages the use of modern technologies in agriculture to increase productivity.',
+      '2. Helps farmers adapt to climate change by funding sustainable agricultural practices.',
+      '3. Promotes farm mechanization, reducing labor costs and improving efficiency.',
+      '4. Enhances the agricultural infrastructure, improving market access and storage.',
+      '5. Supports the development of new seed varieties and innovative farming techniques.',
     ];
 
     return Column(

@@ -1,4 +1,5 @@
 import 'package:farmers_app/Screens/details_maandhan_english.dart';
+import 'package:farmers_app/Screens/details_rkvy_eng.dart';
 import 'package:farmers_app/Screens/pm_creditcard_eng.dart';
 import 'package:flutter/material.dart';
 import 'package:farmers_app/Screens/details_samman_english.dart';
@@ -196,7 +197,12 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                       imagePath: 'assets/images/PM_RKVY.jpg',
                       title: 'Rashtriya Krishi Vikas Yojana',
                       onTap: () {
-                        // Add your onTap action here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailsRKVYEnglish(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: screenHeight * 0.03),

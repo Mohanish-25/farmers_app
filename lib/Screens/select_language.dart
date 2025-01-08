@@ -8,6 +8,14 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // Define the size for the logos
+    final logoWidth = screenWidth * 0.2; // 20% of screen width
+    final logoHeight = logoWidth * 1.35; // Maintain aspect ratio
+
     return Scaffold(
       backgroundColor: const Color(0xFFF2FFF8),
       body: SafeArea(
@@ -16,49 +24,50 @@ class LanguageScreen extends StatelessWidget {
           children: [
             // Header with logos
             const Header(),
-            const SizedBox(height: 100),
+            SizedBox(height: screenHeight * 0.1), // 10% of screen height
             // Main content
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0),
+              padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.08), // 8% of screen width
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Language/भाषा',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 32,
+                      fontSize: screenWidth * 0.08, // 8% of screen width
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF2C2E35),
+                      color: const Color(0xFF2C2E35),
                       letterSpacing: 0.15,
                       height: 1.4,
                     ),
                   ),
-                  const SizedBox(height: 33),
-                  const Text(
+                  SizedBox(height: screenHeight * 0.03), // 3% of screen height
+                  Text(
                     'Please select your preferred language.',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 22,
+                      fontSize: screenWidth * 0.05, // 5% of screen width
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF2C2E35),
+                      color: const Color(0xFF2C2E35),
                       letterSpacing: 0.15,
                       height: 1.4,
                     ),
                   ),
-                  const SizedBox(height: 23),
-                  const Text(
+                  SizedBox(height: screenHeight * 0.02), // 2% of screen height
+                  Text(
                     'कृपया तुमची पसंतीची भाषा निवडा.',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 22,
+                      fontSize: screenWidth * 0.05, // 5% of screen width
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF2C2E35),
+                      color: const Color(0xFF2C2E35),
                       letterSpacing: 0.15,
                       height: 1.4,
                     ),
                   ),
-                  const SizedBox(height: 62),
+                  SizedBox(height: screenHeight * 0.06), // 6% of screen height
                   // Language buttons
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,10 +117,16 @@ class _LanguageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.1, // 10% of screen width
+          vertical: screenWidth * 0.06, // 6% of screen width
+        ),
         decoration: BoxDecoration(
           border: Border.all(
             color: const Color(0xFF12723D),
@@ -121,11 +136,11 @@ class _LanguageButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Poppins',
-            fontSize: 24,
+            fontSize: screenWidth * 0.06, // 6% of screen width
             fontWeight: FontWeight.w700,
-            color: Color(0xFF12723D),
+            color: const Color(0xFF12723D),
             letterSpacing: 0.15,
             height: 1.4,
           ),
@@ -134,25 +149,3 @@ class _LanguageButton extends StatelessWidget {
     );
   }
 }
-
-// To integrate other languages:
-// 1. Create a language enum
-// enum AppLanguage { english, marathi }
-
-// 2. Create a class for storing translations
-// class AppLocalizations {
-//   static Map<String, Map<String, String>> _localizedValues = {
-//     'en': {
-//       'selectLanguage': 'Please select your preferred language.',
-//       // Add more translations
-//     },
-//     'mr': {
-//       'selectLanguage': 'कृपया तुमची पसंतीची भाषा निवडा.',
-//       // Add more translations
-//     },
-//   };
-// }
-
-// 3. Use a state management solution (Provider/Bloc) to manage language changes
-// 4. Wrap the app with a localization delegate
-// 5. Access translations using the current locale

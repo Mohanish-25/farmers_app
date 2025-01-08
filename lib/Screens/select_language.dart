@@ -12,9 +12,8 @@ class LanguageScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    // Define the size for the logos
-    final logoWidth = screenWidth * 0.2; // 20% of screen width
-    final logoHeight = logoWidth * 1.35; // Maintain aspect ratio
+// 20% of screen width
+// Maintain aspect ratio
 
     return Scaffold(
       backgroundColor: const Color(0xFFF2FFF8),

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:farmers_app/Screens/select_language.dart'; // Make sure to import your language select screen
+import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,12 +12,36 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    _preloadImages();
     Future.delayed(const Duration(milliseconds: 2000), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LanguageScreen()),
       );
     });
+  }
+
+  Future<void> _preloadImages() async {
+    final List<String> imagePaths = [
+      'assets/images/drawer_background1.jpg',
+      'assets/images/Profile_Photo.jpg',
+      'assets/images/College_Logo.png',
+      'assets/images/NSS_Logo.png',
+      'assets/images/Illustration.png',
+      'assets/images/PM_CreditCard.jpg',
+      'assets/images/PM_FasalBima.jpg',
+      'assets/images/PM_MaanDhan.jpg',
+      'assets/images/PM_RKVY.jpg',
+      'assets/images/PM_Samman.jpg',
+      'assets/images/Soil_HealthCard.jpg',
+      // Add all other asset image paths here
+    ];
+
+    for (String path in imagePaths) {
+      await precacheImage(AssetImage(path), context);
+    }
+
+    // Delay for 2 seconds before navigating to the next screen
   }
 
   @override
@@ -41,10 +65,10 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Image.asset(
                   'assets/images/College_Logo.png',
-                  width: logoWidth,
+                  width: logoWidth * 1.3,
                   height: logoHeight,
                 ),
-                SizedBox(width: screenWidth * 0.2), // 5% of screen width
+                SizedBox(width: screenWidth * 0.1), // 5% of screen width
 
                 Image.asset(
                   'assets/images/NSS_Logo.png',

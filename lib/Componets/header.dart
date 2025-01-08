@@ -21,8 +21,6 @@ class Header extends StatelessWidget {
         screenWidth * 0.10; // College logo width as 10% of screen width
     final nssLogoWidth =
         screenWidth * 0.145; // NSS logo width as 14% of screen width
-    final spacingBetweenLogos =
-        screenWidth * 0.05; // Spacing as 5% of screen width
     final textFontSize = screenWidth * 0.06; // Font size as 6% of screen width
 
     return Padding(
@@ -32,15 +30,14 @@ class Header extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Image.asset(
+            collegeLogo,
+            width: logoWidth,
+            height: logoWidth * 1.35, // Maintain aspect ratio
+            fit: BoxFit.contain,
+          ),
           Row(
             children: [
-              Image.asset(
-                collegeLogo,
-                width: logoWidth,
-                height: logoWidth * 1.35, // Maintain aspect ratio
-                fit: BoxFit.contain,
-              ),
-              SizedBox(width: spacingBetweenLogos),
               Text(
                 'PESMCOE ',
                 style: TextStyle(

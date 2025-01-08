@@ -58,7 +58,17 @@ class DetailsKisanCreditCardEnglish extends StatelessWidget {
               padding: EdgeInsets.all(screenWidth * 0.05),
               child: ElevatedButton(
                 onPressed: _launchUrl,
-                child: const Text('Apply'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF2B9846),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  side: const BorderSide(color: Color(0xFF2B9846)),
+                ),
+                child: const Text(
+                  'Apply',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
           ],

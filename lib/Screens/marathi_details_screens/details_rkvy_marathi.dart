@@ -56,9 +56,19 @@ class DetailsRKVYMarathi extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(screenWidth * 0.05),
-              child: const ElevatedButton(
+              child: ElevatedButton(
                 onPressed: _launchUrl,
-                child: Text('अर्ज करा'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF2B9846),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  side: const BorderSide(color: Color(0xFF2B9846)),
+                ),
+                child: const Text(
+                  'अर्ज करा',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
           ],

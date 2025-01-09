@@ -53,7 +53,6 @@ class IllustrationSection extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: screenHeight * 0.02), // 2% of screen height
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

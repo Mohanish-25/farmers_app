@@ -15,15 +15,13 @@ class SignInEnglish extends StatelessWidget {
 
     return Scaffold(
       body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
+        width: screenSize.width,
+        height: screenSize.height,
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: screenSize.height * 0.02),
                 const Header(),
-                SizedBox(height: screenSize.height * 0.03),
                 const IllustrationSection(),
                 Stack(
                   children: [

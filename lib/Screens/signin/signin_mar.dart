@@ -12,12 +12,11 @@ class SignInMarathi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SizedBox(
-        width: double.infinity,
-        height: screenHeight,
+        width: screenSize.width,
+        height: screenSize.height,
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(

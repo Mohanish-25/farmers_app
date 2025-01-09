@@ -1,4 +1,5 @@
 import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/tutorial_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -56,19 +57,30 @@ class DetailsSammanEnglish extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(screenWidth * 0.05),
-              child: ElevatedButton(
-                onPressed: _launchUrl,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2B9846),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: _launchUrl,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2B9846),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      side: const BorderSide(color: Color(0xFF2B9846)),
+                    ),
+                    child: const Text(
+                      'Apply Now',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontFamily: 'Poppins-Semibold'),
+                    ),
                   ),
-                  side: const BorderSide(color: Color(0xFF2B9846)),
-                ),
-                child: const Text(
-                  'Apply',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
+                  const TutorialButton(
+                      text: 'Tutorial',
+                      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+                ],
               ),
             ),
           ],

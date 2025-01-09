@@ -4,7 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 class TutorialButton extends StatelessWidget {
   final String url;
 
-  const TutorialButton({super.key, required this.url});
+  final String text;
+  const TutorialButton({super.key, required this.url, required this.text});
 
   static Future<void> _launchUrl(String url) async {
     final Uri uri = Uri.parse(url);
@@ -15,25 +16,29 @@ class TutorialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+    final screenSize = MediaQuery.of(context).size;
+    return ElevatedButton(
       onPressed: () => _launchUrl(url),
-      icon: const Icon(
-        Icons.play_circle_fill,
-        color: Colors.red,
-      ),
-      label: const Text('Tutorial'),
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-        textStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        backgroundColor: const Color.fromRGBO(229, 57, 53, 1),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(50),
         ),
+        side: const BorderSide(color: Color.fromRGBO(229, 57, 53, 1)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Icon(Icons.play_arrow, color: Colors.white),
+          SizedBox(width: screenSize.width * 0.02),
+          Text(
+            text,
+            style: const TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontFamily: 'Poppins-Semibold'),
+          ),
+        ],
       ),
     );
   }

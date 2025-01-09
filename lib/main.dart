@@ -1,5 +1,4 @@
 import 'package:farmers_app/Screens/initial_splash_screen.dart';
-import 'package:farmers_app/Screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

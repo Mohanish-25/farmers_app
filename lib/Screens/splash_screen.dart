@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _preloadImages();
-    Future.delayed(const Duration(milliseconds: 2000), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LanguageScreen()),
@@ -25,8 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
     final List<String> imagePaths = [
       'assets/images/drawer_background1.jpg',
       'assets/images/Profile_Photo.jpg',
-      'assets/images/College_Logo.png',
-      'assets/images/NSS_Logo.png',
       'assets/images/Illustration.png',
       'assets/images/PM_CreditCard.jpg',
       'assets/images/PM_FasalBima.jpg',

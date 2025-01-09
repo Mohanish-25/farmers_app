@@ -1,6 +1,6 @@
+import 'package:farmers_app/Componets/button_bar.dart';
 import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DetailsSammanMarathi extends StatelessWidget {
   const DetailsSammanMarathi({super.key});
@@ -54,35 +54,15 @@ class DetailsSammanMarathi extends StatelessWidget {
               ),
               child: const ProductOverview(),
             ),
-            Padding(
-              padding: EdgeInsets.all(screenWidth * 0.05),
-              child: ElevatedButton(
-                onPressed: _launchUrl,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2B9846),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  side: const BorderSide(color: Color(0xFF2B9846)),
-                ),
-                child: const Text(
-                  'अर्ज करा',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
-            ),
+            const Buttons(
+                urlApply: 'https://pmkisan.gov.in/',
+                textApply: 'अर्ज करा',
+                urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                textTutorial: 'ट्यूटोरियल'),
           ],
         ),
       ),
     );
-  }
-
-  static final Uri _url = Uri.parse('https://pmkisan.gov.in/');
-
-  static Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
   }
 }
 

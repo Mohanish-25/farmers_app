@@ -36,7 +36,6 @@ class _InitialSplashScreenState extends State<InitialSplashScreen> {
   Widget build(BuildContext context) {
     // Get the screen dimensions
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     // Define the size for the app logo
     final logoWidth = screenWidth * 0.4; // 40% of screen width

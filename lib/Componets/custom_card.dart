@@ -14,7 +14,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen dimensions
+    // Get screen dimensions
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -42,8 +42,7 @@ class CustomCard extends StatelessWidget {
               Image.asset(
                 imagePath,
                 width: screenWidth * 0.8,
-                height: screenHeight * 0.2,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain, // changed code
               ),
             ],
           ),

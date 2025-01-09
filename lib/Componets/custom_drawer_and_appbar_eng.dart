@@ -31,7 +31,7 @@ class _CustomDrawerAppBarEngState extends State<CustomDrawerAppBarEng> {
       children: [
         const Header(),
         Container(
-          height: screenHeight * 0.05,
+          height: screenHeight * 0.065,
           color: const Color(0xFFB2FFB7),
           padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.0125),
           child: Row(

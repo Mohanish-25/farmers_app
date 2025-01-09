@@ -12,23 +12,22 @@ class SignInMarathi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
-        height: double.infinity,
+        height: screenHeight,
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: screenSize.height * 0.02),
                 const Header(),
-                SizedBox(height: screenSize.height * 0.03),
                 const IllustrationSection(),
                 Stack(
                   children: [
                     Positioned(
-                      right: 16,
+                      right: -screenSize.width * 0.005,
                       child: SkipMarathiButton(
                         onPressed: () {
                           // Handle skip button press
@@ -51,7 +50,7 @@ class SignInMarathi extends StatelessWidget {
                           // Show toast message
                           WidgetsBinding.instance.addPostFrameCallback((_) {
                             Fluttertoast.showToast(
-                              msg: "Coming soon",
+                              msg: "लवकरच येत आहे",
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               timeInSecForIosWeb: 1,

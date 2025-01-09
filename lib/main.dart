@@ -1,3 +1,4 @@
+import 'package:farmers_app/Screens/initial_splash_screen.dart';
 import 'package:farmers_app/Screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(), // Set SplashScreen as the home widget
+      home: const InitialSplashScreen(), // Set SplashScreen as the home widget
     );
   }
 }

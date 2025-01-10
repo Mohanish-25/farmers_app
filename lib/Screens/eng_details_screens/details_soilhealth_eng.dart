@@ -1,6 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
 import 'package:farmers_app/Componets/custom_drawer_and_appbar_eng.dart';
-import 'package:farmers_app/Componets/header.dart';
 import 'package:flutter/material.dart';
 
 class DetailsSoilHealthCardEnglish extends StatelessWidget {
@@ -12,6 +11,7 @@ class DetailsSoilHealthCardEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      endDrawer: CustomDrawerAppBarEng.buildDrawer(context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

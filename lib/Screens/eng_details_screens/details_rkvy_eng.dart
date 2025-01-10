@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_eng.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRKVYEnglish extends StatelessWidget {
@@ -11,10 +11,11 @@ class DetailsRKVYEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      endDrawer: CustomDrawerAppBarEng.buildDrawer(context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomDrawerAppBar(
+          CustomDrawerAppBarEng(
             title: 'Details', // Title in English
             onBackPressed: () => Navigator.pop(context),
           ),

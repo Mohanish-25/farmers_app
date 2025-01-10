@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _preloadImages();
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Future.delayed(const Duration(milliseconds: 2000), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LanguageScreen()),
@@ -66,8 +66,17 @@ class _SplashScreenState extends State<SplashScreen> {
                   width: logoWidth * 1.3,
                   height: logoHeight,
                 ),
-                SizedBox(width: screenWidth * 0.1), // 5% of screen width
-
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.02), // 10 pixels padding
+                  child: Container(
+                    width: 2,
+                    height: logoHeight,
+                    color: const Color.fromARGB(255, 73, 67, 67),
+                    margin: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.05), // 5% of screen width
+                  ),
+                ),
                 Image.asset(
                   'assets/images/NSS_Logo.png',
                   width: logoWidth * 1.3,

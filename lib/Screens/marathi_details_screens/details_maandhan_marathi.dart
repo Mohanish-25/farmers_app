@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsMaandhanMarathi extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsMaandhanMarathi extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'तपशील', // Title in Marathi
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'तपशील',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://maandhan.in/',
+                    textApply: 'अर्ज करा',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'ट्यूटोरियल',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://pmkisan.gov.in/',
-              textApply: 'अर्ज करा',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'ट्यूटोरियल',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -137,7 +123,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'पीएम-किसान मानधन योजना',
+            'प्रधानमंत्री मानधन योजना (PM-MaanDhan)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -174,7 +160,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'पीएम-किसान मानधन योजना',
+            'प्रधानमंत्री मानधन योजना (PM-MaanDhan)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,18 +180,20 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'तपशील:',
-      '1. 2019 मध्ये सुरू केली गेली, ही योजना 60 वर्षे आणि त्याहून अधिक वयाच्या शेतकऱ्यांना आर्थिक सुरक्षा प्रदान करते.',
-      '2. लहान आणि मॅरिजिनल शेतकऱ्यांना ₹3,000/महिना पेन्शन देय दिले जाते.',
-      '3. शेतकऱ्यांनी ₹55-₹200 दरम्यान एक छोटी रक्कम योगदान दिली जाते, जी सरकार सामील करतो.',
-      '4. योजना ऐच्छिक आहे आणि नोंदणी करणे आवश्यक आहे.',
+      '1. प्रधानमंत्री मानधन योजना (PM-MaanDhan) एक निवृत्ती योजना आहे जी असंघटित क्षेत्रातील कामगारांसाठी आहे.',
+      '2. या योजनेअंतर्गत, 60 वर्षे वयाच्या नंतर दरमहा ₹3000 ची निवृत्ती वेतन दिली जाते.',
+      '3. या योजनेचा उद्देश असंघटित क्षेत्रातील कामगारांना आर्थिक सुरक्षा प्रदान करणे आहे.',
+      '4. योजनेत सामील होण्यासाठी, वयोमर्यादा 18 ते 40 वर्षे आहे.',
+      '5. योजनेत सामील होण्यासाठी, मासिक उत्पन्न ₹15,000 पेक्षा कमी असावे.',
       'अर्हता:',
-      '1. 18-40 वयाच्या शेतकऱ्यांना योजनेत नोंदणी करण्याची आणि योगदान देण्याची संधी आहे.',
-      '2. केवळ 2 हेक्टरांपर्यंत जमीन असलेले शेतकरी पात्र आहेत.',
-      '3. शेतकऱ्यांना आधार आणि बॅंकेचे तपशील असणे आवश्यक आहे.',
+      '1. अर्जदाराचे वय 18 ते 40 वर्षे दरम्यान असावे.',
+      '2. मासिक उत्पन्न ₹15,000 पेक्षा कमी असावे.',
+      '3. अर्जदार असंघटित क्षेत्रातील कामगार असावा.',
       'फायदे:',
-      '1. शेतकऱ्यांच्या वृद्धापकाळात आर्थिक सुरक्षा प्रदान करतो.',
-      '2. ₹3,000 चा स्थिर उत्पन्न मिळवता येतो.',
-      '3. वृद्धापकाळी आर्थिक स्थिरता वाढवतो.',
+      '1. निवृत्ती वेतन: 60 वर्षे वयाच्या नंतर दरमहा ₹3000 ची निवृत्ती वेतन.',
+      '2. आर्थिक सुरक्षा: असंघटित क्षेत्रातील कामगारांना आर्थिक सुरक्षा प्रदान करणे.',
+      '3. सुलभ अर्ज प्रक्रिया: अर्ज प्रक्रिया सोपी आणि सुलभ आहे.',
+      '4. सरकारी योजना: ही योजना केंद्र सरकारद्वारे चालवली जाते.',
     ];
 
     return Column(

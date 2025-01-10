@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsCreditCardMarathi extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsCreditCardMarathi extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'तपशील', // Title in Marathi
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'तपशील',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://www.myscheme.gov.in/schemes/kcc',
+                    textApply: 'अर्ज करा',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'ट्यूटोरियल',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://www.myscheme.gov.in/schemes/kcc',
-              textApply: 'अर्ज करा',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'ट्यूटोरियल',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -194,19 +180,20 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'तपशील:',
-      '1. 1998 मध्ये सुरू केली गेली, हे शेतकऱ्यांना कृषी इनपुट्स खरेदी करण्यासाठी शॉर्ट टर्म क्रेडिट देते.',
-      '2. पोस्ट-हार्वेस्ट खर्च, शेत उपकरणे आणि संबंधित क्रियाकलापांसाठी देखील कर्ज मिळते.',
-      '3. कर्जाचे ब्याज दर कमी असतात, आणि वेळेवर कर्ज परतफेडीवर 2-4% दराने सबसिडी मिळते.',
-      '4. कर्ज मर्यादा शेतकऱ्याच्या जमीनधारणेच्या आणि पीक पद्धतीच्या आधारावर असते.',
-      '5. ₹50,000 ची वैयक्तिक अपघाती विमा कव्हरेज.',
+      '1. किसान क्रेडिट कार्ड (KCC) शेतकऱ्यांना अल्पकालीन कर्ज उपलब्ध करून देण्यासाठी आहे.',
+      '2. या योजनेअंतर्गत, शेतकऱ्यांना त्यांच्या शेतीसाठी आवश्यक असलेल्या खर्चासाठी कर्ज दिले जाते.',
+      '3. या योजनेचा उद्देश शेतकऱ्यांना आर्थिक सुरक्षा प्रदान करणे आहे.',
+      '4. योजनेत सामील होण्यासाठी, शेतकऱ्यांनी त्यांच्या शेतीसाठी कर्ज घेणे आवश्यक आहे.',
+      '5. योजनेत सामील होण्यासाठी, शेतकऱ्यांनी त्यांच्या शेतीसाठी कर्ज प्रीमियम भरणे आवश्यक आहे.',
       'अर्हता:',
-      '1. शेतकऱ्यांना शेती उत्पादन किंवा संबंधित क्रियाकलापांसाठी लागणारे कर्ज घेण्यास योग्य असावे.',
-      '2. टेनंट शेतकरी, शेअरक्रॉपर्स आणि स्वयं सहायता गट सदस्य हे देखील पात्र आहेत.',
-      '3. कर्ज घेण्यासाठी आधार आणि बँक खातं आवश्यक आहे.',
+      '1. अर्जदार शेतकरी असावा.',
+      '2. अर्जदाराने त्यांच्या शेतीसाठी कर्ज घेतलेले असावे.',
+      '3. अर्जदाराने कर्ज प्रीमियम भरणे आवश्यक आहे.',
       'फायदे:',
-      '1. कमी कागदपत्रांसह जलद कर्ज मिळवता येते.',
-      '2. पैशाच्या स्रोतात कमी अवलंबन आणि अधिक स्वातंत्र्य मिळवता येते.',
-      '3. शेतकऱ्यांना कमी ब्याजदरावर कर्ज देणे त्यांना शेतीवर अधिक फोकस करायला मदत करते.',
+      '1. अल्पकालीन कर्ज: शेतकऱ्यांना त्यांच्या शेतीसाठी आवश्यक असलेल्या खर्चासाठी कर्ज दिले जाते.',
+      '2. आर्थिक सुरक्षा: शेतकऱ्यांना आर्थिक सुरक्षा प्रदान करणे.',
+      '3. सुलभ अर्ज प्रक्रिया: अर्ज प्रक्रिया सोपी आणि सुलभ आहे.',
+      '4. सरकारी योजना: ही योजना केंद्र सरकारद्वारे चालवली जाते.',
     ];
 
     return Column(

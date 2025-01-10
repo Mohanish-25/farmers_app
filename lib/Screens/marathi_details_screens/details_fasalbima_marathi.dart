@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsFasalBimaMarathi extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsFasalBimaMarathi extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'तपशील', // Title in Marathi
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'तपशील',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://pmfby.gov.in/',
+                    textApply: 'अर्ज करा',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'ट्यूटोरियल',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://pmfby.gov.in/',
-              textApply: 'अर्ज करा',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'ट्यूटोरियल',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -194,23 +180,20 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'तपशील:',
-      '1. 2016 मध्ये सुरू झालेली ही योजना नैसर्गिक आपत्तीं, कीटक आणि रोगांपासून जोखीम संरक्षण प्रदान करते.',
-      '2. खरीफ, रबी आणि वाणिज्यिक/हॉर्टिकल्चल पिके कव्हर केली जातात.',
-      '3. खरीफ पिकांसाठी 2%, रबी पिकांसाठी 1.5% आणि वाणिज्यिक पिकांसाठी 5% यांसारख्या कमी प्रीमियम दरांसाठी ही योजना उपलब्ध आहे.',
-      '4. सरकार प्रीमियम सबसिडी देऊन आर्थिक ओझे कमी करण्यास मदत करते.',
-      '5. रोख नुकसान, वाया गेलेली बियाणे, आणि काढणी नंतरच्या नुकसानीसाठी क्लेम सेटलमेंट उपलब्ध करतो.',
-      '6. यंत्रणा उड्डाण सेंसिंग आणि जमिनीच्या सत्यापनासाठी नुकसानाचा मूल्यांकन करते.',
+      '1. प्रधानमंत्री फसल बीमा योजना (PMFBY) शेतकऱ्यांना पिकांच्या नुकसानीपासून संरक्षण देण्यासाठी आहे.',
+      '2. या योजनेअंतर्गत, शेतकऱ्यांना पिकांच्या नुकसानीसाठी विमा संरक्षण दिले जाते.',
+      '3. या योजनेचा उद्देश शेतकऱ्यांना आर्थिक सुरक्षा प्रदान करणे आहे.',
+      '4. योजनेत सामील होण्यासाठी, शेतकऱ्यांनी त्यांच्या पिकांसाठी विमा घेणे आवश्यक आहे.',
+      '5. योजनेत सामील होण्यासाठी, शेतकऱ्यांनी त्यांच्या पिकांसाठी विमा प्रीमियम भरणे आवश्यक आहे.',
       'अर्हता:',
-      '1. जो शेतकरी नोंदणीकृत पिके घेत आहे आणि नोंदणीकृत क्षेत्रांमध्ये आहे तो पात्र आहे.',
-      '2. कर्ज घेणारे शेतकरी आवश्यक असतात.',
-      '3. शेतकऱ्यांना आधार आणि बँक खात्याच्या तपशीलांची आवश्यकता असते.',
-      '4. किरायेदार शेतकरी आणि शेअरक्रॉपर्ससाठी कव्हरेज उपलब्ध आहे.',
+      '1. अर्जदार शेतकरी असावा.',
+      '2. अर्जदाराने त्यांच्या पिकांसाठी विमा घेतलेला असावा.',
+      '3. अर्जदाराने विमा प्रीमियम भरणे आवश्यक आहे.',
       'फायदे:',
-      '1. अनपेक्षित घटना किंवा नैसर्गिक आपत्तींमुळे पीक नुकसान होण्यापासून आर्थिक संरक्षण मिळते.',
-      '2. पीक नुकसानीच्या बाबतीत एक नियमित उत्पन्न ओळ ठेवण्यास मदत करतो.',
-      '3. शेतकऱ्यांना आधुनिक पद्धतींमध्ये भाग घेण्यास प्रोत्साहन देते.',
-      '4. नैसर्गिक आपत्तींचा आर्थिक परिणाम कमी करतो.',
-      '5. शेतकऱ्यांचा आत्मविश्वास वाढवतो आणि उत्तम शेती तंत्रज्ञानांना प्रोत्साहन देतो.',
+      '1. पिकांच्या नुकसानीपासून संरक्षण: शेतकऱ्यांना पिकांच्या नुकसानीसाठी विमा संरक्षण दिले जाते.',
+      '2. आर्थिक सुरक्षा: शेतकऱ्यांना आर्थिक सुरक्षा प्रदान करणे.',
+      '3. सुलभ अर्ज प्रक्रिया: अर्ज प्रक्रिया सोपी आणि सुलभ आहे.',
+      '4. सरकारी योजना: ही योजना केंद्र सरकारद्वारे चालवली जाते.',
     ];
 
     return Column(

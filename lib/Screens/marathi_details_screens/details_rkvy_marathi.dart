@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRKVYMarathi extends StatelessWidget {
@@ -11,62 +11,46 @@ class DetailsRKVYMarathi extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'तपशील', // Title in Marathi
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'तपशील',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://www.myscheme.gov.in/schemes/rkvy',
+                    textApply: 'अर्ज करा',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'ट्यूटोरियल',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://www.myscheme.gov.in/schemes/rkvy',
-              textApply: 'अर्ज करा',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'ट्यूटोरियल',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-
- 
 }
 
 class BannerSection extends StatelessWidget {

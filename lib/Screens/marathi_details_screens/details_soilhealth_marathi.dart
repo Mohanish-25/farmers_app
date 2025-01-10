@@ -11,6 +11,7 @@ class DetailsSoilHealthCardMarathi extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      endDrawer: CustomDrawerAppBar.buildDrawer(context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsMaandhanEnglish extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsMaandhanEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'Details', // Title in English
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://maandhan.in/',
+                    textApply: 'Apply',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'Tutorial',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://pmkisan.gov.in/',
-              textApply: 'Apply Now',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'Tutorial',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -81,7 +67,7 @@ class BannerSection extends StatelessWidget {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.asset(
-            'assets/images/PM_MaanDhan.jpg',
+            'assets/images/PM_MaanDhan.jpg', // Update with the correct image path
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -137,7 +123,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'PM-Kisan Maandhan Yojana',
+            'Pradhan Mantri Maan-Dhan Yojana (PM-MaanDhan)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -174,7 +160,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'PM-Kisan Maandhan Yojana',
+            'Pradhan Mantri Maan-Dhan Yojana (PM-MaanDhan) is a pension scheme for unorganized sector workers. Here are the details:',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,23 +180,20 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'Details:',
-      '1. Launched in 2019, the scheme provides financial security for farmers aged 60 and above.',
-      '2. Offers a pension of ₹3,000/month for small and marginal farmers.',
-      '3. Farmers contribute a small amount between ₹55-₹200 per month, which is matched by the government.',
-      '4. The scheme aims to provide income after retirement and ensure financial stability for old-age farmers.',
-      '5. The scheme is voluntary, and enrollment requires meeting the eligibility criteria.',
+      '1. Pradhan Mantri Maan-Dhan Yojana (PM-MaanDhan) is a pension scheme for unorganized sector workers.',
+      '2. Under this scheme, a monthly pension of ₹3000 is provided after the age of 60.',
+      '3. The aim of this scheme is to provide financial security to unorganized sector workers.',
+      '4. The age limit to join the scheme is 18 to 40 years.',
+      '5. The monthly income should be less than ₹15,000 to join the scheme.',
       'Eligibility:',
-      '1. Farmers aged 18-40 years can enroll and make contributions to the scheme.',
-      '2. Only farmers with land holdings up to 2 hectares are eligible.',
-      '3. Excludes institutional landholders, income taxpayers, and government pensioners.',
-      '4. Farmers must have a valid Aadhaar and bank account for enrollment.',
-      '5. Pension benefits are available only after the farmer turns 60 years old.',
+      '1. The applicant should be between 18 to 40 years of age.',
+      '2. The monthly income should be less than ₹15,000.',
+      '3. The applicant should be an unorganized sector worker.',
       'Benefits:',
-      '1. Ensures financial security during the old age of farmers.',
-      '2. Provides steady income of ₹3,000 per month for those who qualify.',
-      '3. Encourages savings during younger years to ensure a comfortable retirement.',
-      '4. Matching government contributions increase the savings pool.',
-      '5. Reduces financial dependency and poverty among elderly farmers.',
+      '1. Pension: A monthly pension of ₹3000 after the age of 60.',
+      '2. Financial Security: Provides financial security to unorganized sector workers.',
+      '3. Easy Application Process: The application process is simple and easy.',
+      '4. Government Scheme: This scheme is run by the central government.',
     ];
 
     return Column(

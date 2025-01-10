@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsFasalBimaEnglish extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsFasalBimaEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'Details', // Title in English
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://pmfby.gov.in/',
+                    textApply: 'Apply',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'Tutorial',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://pmfby.gov.in/',
-              textApply: 'Apply Now',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'Tutorial',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -174,7 +160,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'Pradhan Mantri Fasal Bima Yojana',
+            'Pradhan Mantri Fasal Bima Yojana (PMFBY) provides insurance coverage and financial support to farmers in the event of crop failure. Here are the details:',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,24 +180,19 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'Details:',
-      '1. Launched in 2016, this scheme provides crop insurance to cover risks like natural calamities, pests, and diseases.',
-      '2. Covers kharif, rabi, and commercial/horticultural crops.',
-      '3. Low premium rates of 2% for kharif crops, 1.5% for rabi crops, and 5% for commercial crops.',
-      '4. The government subsidizes the premium to reduce financial burdens.',
-      '5. Provides claim settlement for losses due to prevented sowing, localized risks, and post-harvest losses.',
-      '6. The scheme uses remote sensing technology and ground verification for assessing damage.',
+      '1. Pradhan Mantri Fasal Bima Yojana (PMFBY) provides insurance coverage and financial support to farmers in the event of crop failure.',
+      '2. The scheme aims to stabilize the income of farmers to ensure their continuance in farming.',
+      '3. It encourages farmers to adopt innovative and modern agricultural practices.',
+      '4. The scheme ensures the flow of credit to the agriculture sector.',
       'Eligibility:',
-      '1. Farmers growing notified crops in notified areas are eligible.',
-      '2. Loanee farmers with crop loans are required to participate.',
-      '3. Non-loanee farmers can also opt for coverage on a voluntary basis.',
-      '4. Farmers must provide Aadhaar and bank account details for processing claims.',
-      '5. Coverage is extended to both tenant farmers and sharecroppers.',
+      '1. All farmers growing notified crops in a notified area during the season who have an insurable interest in the crop are eligible.',
+      '2. The scheme is compulsory for loanee farmers availing crop loans for notified crops.',
+      '3. The scheme is voluntary for non-loanee farmers.',
       'Benefits:',
-      '1. Provides financial protection against crop losses from unforeseen events.',
-      '2. Helps maintain a steady income stream in case of crop damage.',
-      '3. Encourages farmers to adopt modern practices without the fear of financial loss.',
-      '4. Reduces the economic impact of natural calamities.',
-      '5. Improves farmer confidence and encourages better farming techniques.',
+      '1. Insurance coverage and financial support to farmers in the event of crop failure.',
+      '2. Stabilizes the income of farmers to ensure their continuance in farming.',
+      '3. Encourages farmers to adopt innovative and modern agricultural practices.',
+      '4. Ensures the flow of credit to the agriculture sector.',
     ];
 
     return Column(

@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRKVYEnglish extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsRKVYEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'Details', // Title in English
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://www.myscheme.gov.in/schemes/rkvy',
+                    textApply: 'Apply',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'Tutorial',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://www.myscheme.gov.in/schemes/rkvy',
-              textApply: 'Apply Now',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'Tutorial',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -174,7 +160,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'Rashtriya Krishi Vikas Yojana (RKVY)',
+            'Rashtriya Krishi Vikas Yojana (RKVY) aims to increase agricultural production capacity.',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,24 +180,22 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'Details:',
-      '1. Launched in 2007 and revamped in 2017, RKVY aims to enhance agricultural productivity.',
-      '2. Focuses on encouraging the adoption of modern farming techniques and innovative practices.',
-      '3. Provides funding for agricultural infrastructure development, seed improvement, and organic farming projects.',
-      '4. Supports state-led agricultural projects with funding from the central government.',
-      '5. Works with the states to prioritize region-specific agricultural solutions and infrastructure projects.',
-      '6. Helps farmers adapt to climate change and improve agricultural resilience.',
+      '1. Launched in 2007, RKVY aims to increase agricultural production capacity.',
+      '2. Focuses on adopting modern technology in farming, providing funds for crop improvement.',
+      '3. State-based agricultural projects receive funding from the central government.',
+      '4. Helps farmers sustain agriculture in the face of climate change.',
+      '5. The main objective of this scheme is to increase farmers\' income and strengthen the financial health of the agricultural sector.',
+      '6. The scheme is implemented by state governments, with 60% of the total funds provided by the central government.',
       'Eligibility:',
-      '1. States and Union Territories submit proposals for agricultural projects under the scheme.',
-      '2. Projects funded must align with the goal of improving agricultural productivity.',
-      '3. Farmers and farmer organizations benefit from state-led projects financed by RKVY.',
-      '4. Focus is on farmers engaged in crop production and agriculture-related infrastructure.',
-      '5. Includes funding for research and development, extension services, and farm mechanization.',
+      '1. Applications are submitted by state governments.',
+      '2. The agriculture department accepts project proposals in the respective state.',
+      '3. Farmers, agricultural institutions, and related stakeholders have the opportunity to participate in projects.',
       'Benefits:',
-      '1. Encourages the use of modern technologies in agriculture to increase productivity.',
-      '2. Helps farmers adapt to climate change by funding sustainable agricultural practices.',
-      '3. Promotes farm mechanization, reducing labor costs and improving efficiency.',
-      '4. Enhances the agricultural infrastructure, improving market access and storage.',
-      '5. Supports the development of new seed varieties and innovative farming techniques.',
+      '1. Implementation of new technology in agriculture.',
+      '2. Easy access to funds for more production and agricultural activities.',
+      '3. Improvement in farmers\' standard of living.',
+      '4. Technology-based solutions to mitigate the effects of climate change.',
+      '5. Inclusion of the entire chain of agricultural production systems, including organic farming and sustainable practices.',
     ];
 
     return Column(

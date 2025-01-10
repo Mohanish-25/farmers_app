@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsSammanEnglish extends StatelessWidget {
@@ -11,56 +11,43 @@ class DetailsSammanEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'Details', // Title in English
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://pmkisan.gov.in/',
+                    textApply: 'Apply',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'Tutorial',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-                urlApply: 'https://pmkisan.gov.in/',
-                textApply: 'Apply Now',
-                urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                textTutorial: 'Tutorial')
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -80,7 +67,7 @@ class BannerSection extends StatelessWidget {
           alignment: Alignment.center,
           margin: EdgeInsets.only(top: screenWidth * 0.05),
           child: Image.asset(
-            'assets/images/PM_Samman.jpg',
+            'assets/images/PM_Samman.jpg', // Update with the correct image path
             width: screenWidth * 0.9,
             height: screenWidth * 0.5,
             fit: BoxFit.cover,
@@ -136,7 +123,7 @@ class TitleSection extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)',
+            'Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,
@@ -166,14 +153,14 @@ class ProductOverview extends StatelessWidget {
             'Product Overview',
             style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
           const SizedBox(height: 18),
           const Text(
-            'The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) scheme provides financial assistance to eligible farmers across India. Here\'s a step-by-step guide to applying for the scheme:',
+            'Pradhan Mantri Kisan Samman Nidhi (PM-Kisan) scheme provides financial assistance to eligible farmers across India. Here is a step-by-step guide to apply for the scheme:',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -193,32 +180,32 @@ class ProductOverview extends StatelessWidget {
   Widget _buildSteps() {
     const steps = [
       'Step 1: Gather Required Documents',
-      'Make sure you have:',
+      'Ensure you have the following:',
       '• Aadhaar Card (mandatory for identification).',
-      '• Landholding Documents (showing your ownership of agricultural land).',
-      '• Bank Account Details (for direct transfer of benefits).',
-      '• Mobile Number (linked to your Aadhaar for OTP verification).',
-      'Step 2: Visit the PM-KISAN Portal',
-      '1. Go to the official PM-KISAN website.',
-      '2. Navigate to the "Farmer\'s Corner" on the homepage.',
+      '• Landholding documents (proof of ownership of farmland).',
+      '• Bank account details (for direct transfer of benefits).',
+      '• Mobile number (linked to your Aadhaar for OTP verification).',
+      'Step 2: Visit PM-Kisan Portal',
+      '1. Go to the official PM-Kisan website.',
+      '2. Navigate to the "Farmer Corner" on the homepage.',
       'Step 3: New Farmer Registration',
-      '1. Click on "New Farmer Registration" in the Farmer\'s Corner.',
+      '1. Click on "New Farmer Registration" in the Farmer Corner.',
       '2. Enter your Aadhaar number and select your state.',
-      '3. Fill out the registration form with personal details, landholding details, and bank account information.',
+      '3. Fill in the registration form with personal details, landholding details, and bank account information.',
       '4. Submit the form.',
       'Step 4: Verification Process',
       '1. After submission, the application is sent for verification.',
       '2. Local authorities will verify your land records and eligibility.',
-      '3. You may be contacted if additional documents or details are required.',
+      '3. You may be contacted for additional documents or details if required.',
       'Step 5: Check Application Status',
-      '1. Use the "Beneficiary Status" option in the Farmer\'s Corner.',
-      '2. Enter your Aadhaar number or bank account number to track your application status.',
+      '1. Use the "Beneficiary Status" option in the Farmer Corner.',
+      '2. Enter your Aadhaar number or bank account number.',
       'Step 6: Receive Benefits',
-      'Once approved, the financial assistance of ₹6,000 per year (in three installments of ₹2,000 each) will be directly transferred to your registered bank account.',
+      'Once approved, the annual financial assistance of ₹6,000 (in three installments of ₹2,000 each) will be directly credited to your registered bank account.',
       'Important Tips',
       '• Ensure your Aadhaar is linked to your bank account for smooth payment processing.',
-      '• If you face any issues, visit your nearest CSC (Common Service Center) for help.',
-      '• Stay updated by checking the official PM-KISAN portal regularly.',
+      '• Visit the nearest CSC (Common Service Center) for assistance if you face any issues.',
+      '• Regularly check the official PM-Kisan portal for updates.',
     ];
 
     return Column(

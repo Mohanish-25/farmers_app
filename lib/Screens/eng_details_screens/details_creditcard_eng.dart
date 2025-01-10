@@ -1,5 +1,5 @@
 import 'package:farmers_app/Componets/button_bar.dart';
-import 'package:farmers_app/Componets/header.dart';
+import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
 import 'package:flutter/material.dart';
 
 class DetailsKisanCreditCardEnglish extends StatelessWidget {
@@ -11,57 +11,43 @@ class DetailsKisanCreditCardEnglish extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Header(),
-            Container(
-              color: const Color(0xFFB2FFB7),
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-              child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomDrawerAppBar(
+            title: 'Details', // Title in English
+            onBackPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF2C2E35),
+                  const BannerSection(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
                     ),
+                    child: const TitleSection(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.02,
+                    ),
+                    child: const ProductOverview(),
+                  ),
+                  const Buttons(
+                    urlApply: 'https://www.myscheme.gov.in/schemes/kcc',
+                    textApply: 'Apply',
+                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    textTutorial: 'Tutorial',
                   ),
                 ],
               ),
             ),
-            const BannerSection(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const TitleSection(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: screenHeight * 0.02,
-              ),
-              child: const ProductOverview(),
-            ),
-            const Buttons(
-              urlApply: 'https://www.myscheme.gov.in/schemes/kcc',
-              textApply: 'Apply Now',
-              urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-              textTutorial: 'Tutorial',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -174,7 +160,7 @@ class ProductOverview extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           const Text(
-            'Kisan Credit Card',
+            'Kisan Credit Card (KCC) provides short-term credit to farmers for their cultivation needs. Here are the details:',
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 16,
@@ -194,22 +180,18 @@ class ProductOverview extends StatelessWidget {
   Widget _buildDetails() {
     const details = [
       'Details:',
-      '1. The Kisan Credit Card (KCC) scheme was introduced in 1998 to provide timely credit to farmers.',
-      '2. It offers credit for crop production, post-harvest expenses, and consumption needs.',
-      '3. The card also covers investment credit for agriculture and allied activities.',
-      '4. Farmers can avail of loans at subsidized interest rates under this scheme.',
-      '5. The scheme aims to provide financial support and reduce the dependency on informal credit sources.',
+      '1. Kisan Credit Card (KCC) provides short-term credit to farmers for their cultivation needs.',
+      '2. The scheme aims to provide timely credit to farmers for their cultivation needs.',
+      '3. The scheme covers the entire range of agricultural activities, including crop production, post-harvest expenses, and consumption needs.',
+      '4. The scheme also covers investment credit requirements for agriculture and allied activities.',
       'Eligibility:',
-      '1. All farmers, including small and marginal farmers, tenant farmers, and sharecroppers, are eligible.',
-      '2. Self Help Groups (SHGs) or Joint Liability Groups (JLGs) of farmers can also apply.',
-      '3. Farmers must have a valid Aadhaar and bank account for enrollment.',
-      '4. The credit limit is determined based on the scale of finance and the farmer\'s repayment capacity.',
+      '1. All farmers, including tenant farmers, oral lessees, and sharecroppers, are eligible for the scheme.',
+      '2. Self Help Groups (SHGs) or Joint Liability Groups (JLGs) of farmers, including tenant farmers, sharecroppers, etc., are also eligible.',
       'Benefits:',
-      '1. Provides easy access to credit for various agricultural needs.',
-      '2. Offers loans at subsidized interest rates, reducing the financial burden on farmers.',
-      '3. Ensures timely availability of funds for crop production and other expenses.',
-      '4. Encourages investment in agriculture and allied activities.',
-      '5. Reduces dependency on informal credit sources and promotes financial inclusion.',
+      '1. Short-term credit: Provides timely credit to farmers for their cultivation needs.',
+      '2. Financial security: Provides financial security to farmers.',
+      '3. Easy application process: The application process is simple and easy.',
+      '4. Government scheme: This scheme is run by the central government.',
     ];
 
     return Column(

@@ -9,10 +9,10 @@ class CustomDrawerAppBar extends StatefulWidget {
   final String? title; // Nullable title
 
   const CustomDrawerAppBar({
-    Key? key,
+    super.key,
     required this.onBackPressed,
     this.title,
-  }) : super(key: key);
+  });
 
   // Modified static method
   static Widget buildDrawer(BuildContext context) {

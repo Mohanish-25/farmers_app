@@ -7,12 +7,12 @@ class IllustrationSection extends StatelessWidget {
   final String? description;
 
   const IllustrationSection({
-    Key? key,
+    super.key,
     this.imagePath = 'assets/images/Illustration.png',
     this.mainTitle = 'Kisano ko',
     this.subtitle = 'Saath Jode',
     this.description = 'Aadhik Vikas ki Aur Badhe!',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

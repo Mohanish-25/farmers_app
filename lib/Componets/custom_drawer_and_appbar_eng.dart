@@ -8,10 +8,10 @@ class CustomDrawerAppBarEng extends StatefulWidget {
   final Function() onBackPressed;
   final String? title;
   const CustomDrawerAppBarEng({
-    Key? key,
+    super.key,
     required this.onBackPressed,
     this.title,
-  }) : super(key: key);
+  });
 
   // Modified static method
   static Widget buildDrawer(BuildContext context) {
@@ -108,7 +108,7 @@ class _DrawerContentEngState extends State<_DrawerContentEng> {
                 fit: BoxFit.cover,
               ),
             ),
-            currentAccountPicture: Container(
+            currentAccountPicture: SizedBox(
               width: double.infinity,
               child: Center(
                 child: Container(

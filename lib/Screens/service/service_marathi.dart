@@ -30,6 +30,7 @@ class ServiceMarathiScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomDrawerAppBar(
+            title: 'सेवा', // Title in Marathi
             onBackPressed: () => Navigator.pop(context),
           ),
           Expanded(

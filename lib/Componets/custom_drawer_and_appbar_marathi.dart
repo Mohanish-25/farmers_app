@@ -6,10 +6,12 @@ import 'package:farmers_app/Componets/header.dart';
 
 class CustomDrawerAppBar extends StatefulWidget {
   final Function() onBackPressed;
+  final String? title; // Nullable title
 
   const CustomDrawerAppBar({
     Key? key,
     required this.onBackPressed,
+    this.title,
   }) : super(key: key);
 
   // Modified static method
@@ -31,7 +33,7 @@ class _CustomDrawerAppBarState extends State<CustomDrawerAppBar> {
       children: [
         const Header(),
         Container(
-          height: screenHeight * 0.065,
+          height: screenHeight * 0.05,
           color: const Color(0xFFB2FFB7),
           padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.0125),
           child: Row(
@@ -41,6 +43,16 @@ class _CustomDrawerAppBarState extends State<CustomDrawerAppBar> {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: widget.onBackPressed,
               ),
+              if (widget.title != null)
+                Text(
+                  widget.title!,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Poppins',
+                    color: Color(0xFF2C2E35),
+                  ),
+                ),
               Builder(
                 builder: (context) => IconButton(
                   icon: const Icon(Icons.menu),
@@ -97,7 +109,7 @@ class _DrawerContentState extends State<_DrawerContent> {
                 fit: BoxFit.cover,
               ),
             ),
-            currentAccountPicture: Container(
+            currentAccountPicture: SizedBox(
               width: double.infinity,
               child: Center(
                 child: Container(

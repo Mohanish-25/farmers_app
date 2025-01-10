@@ -28,6 +28,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
       body: Column(
         children: [
           CustomDrawerAppBarEng(
+            title: 'Schemes', // Title in English
             onBackPressed: () => Navigator.pop(context),
           ),
           Expanded(

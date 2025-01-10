@@ -30,6 +30,7 @@ class ServiceEnglishScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomDrawerAppBarEng(
+            title: 'Services', // Title in English
             onBackPressed: () => Navigator.pop(context),
           ),
           Expanded(

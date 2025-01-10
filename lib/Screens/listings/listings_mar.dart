@@ -27,6 +27,7 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
       body: Column(
         children: [
           CustomDrawerAppBar(
+            title: 'योजना', // Title in Marathi
             onBackPressed: () => Navigator.pop(context),
           ),
           Expanded(

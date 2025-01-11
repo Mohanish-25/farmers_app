@@ -120,6 +120,7 @@ class _ListingsEnglishScreenState extends State<ListingsEnglishScreen> {
                         );
                       },
                     ),
+                    SizedBox(height: screenHeight * 0.03),
                   ],
                 ),
               ),

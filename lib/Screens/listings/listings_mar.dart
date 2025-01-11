@@ -119,6 +119,7 @@ class _ListingsMarathiScreenState extends State<ListingsMarathiScreen> {
                         );
                       },
                     ),
+                    SizedBox(height: screenHeight * 0.03),
                   ],
                 ),
               ),

@@ -13,31 +13,8 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    _preloadImages();
-  }
-
-  Future<void> _preloadImages() async {
-    final List<String> imagePaths = [
-      'assets/images/College_Logo.jpg',
-      'assets/images/NSS_Logo.jpg',
-      // Add all other asset image paths here
-    ];
-
-    for (String path in imagePaths) {
-      await precacheImage(AssetImage(path), context);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

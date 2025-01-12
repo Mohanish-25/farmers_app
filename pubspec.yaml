@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.0.9
   url_launcher: ^6.3.1
+  flutter_native_splash: ^2.0.5+1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -105,3 +106,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color: "#F2FFF8" # Background color of the splash screen
+  image: assets/images/Logo.png # Path to your splash screen image
+  android: true
+  ios: true
+  web: false
+  fullscreen: true

@@ -122,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             SizedBox(height: screenHeight * 0.05), // 5% of screen height
             const Text(
-              'Kisaan App',
+              'Krushi मित्र',
               style: TextStyle(
                 fontFamily: 'Reggae One',
                 fontSize: 42,

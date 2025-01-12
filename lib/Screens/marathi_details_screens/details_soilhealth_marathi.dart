@@ -1,5 +1,6 @@
 import 'package:farmers_app/Componets/button_bar.dart';
 import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
+import 'package:farmers_app/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class DetailsSoilHealthCardMarathi extends StatelessWidget {
@@ -41,8 +42,7 @@ class DetailsSoilHealthCardMarathi extends StatelessWidget {
                   const Buttons(
                       urlApply: 'https://soilhealth.dac.gov.in/',
                       textApply: 'अर्ज करा',
-                      urlTutorial:
-                          'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                      urlTutorial: AppStrings.soilHealth,
                       textTutorial: 'ट्यूटोरियल'),
                 ],
               ),

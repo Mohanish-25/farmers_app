@@ -1,5 +1,6 @@
 import 'package:farmers_app/Componets/button_bar.dart';
 import 'package:farmers_app/Componets/custom_drawer_and_appbar_marathi.dart';
+import 'package:farmers_app/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class DetailsCreditCardMarathi extends StatelessWidget {
@@ -41,7 +42,7 @@ class DetailsCreditCardMarathi extends StatelessWidget {
                   const Buttons(
                     urlApply: 'https://www.myscheme.gov.in/schemes/kcc',
                     textApply: 'अर्ज करा',
-                    urlTutorial: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    urlTutorial: AppStrings.creditCard,
                     textTutorial: 'ट्यूटोरियल',
                   ),
                 ],

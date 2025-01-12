@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _preloadImages();
-    Future.delayed(const Duration(milliseconds: 20000000000), () {
+    Future.delayed(const Duration(milliseconds: 2000), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LanguageScreen()),

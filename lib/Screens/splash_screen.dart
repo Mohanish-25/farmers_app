@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _preloadImages();
-    Future.delayed(const Duration(milliseconds: 2000), () {
+    Future.delayed(const Duration(milliseconds: 20000000000), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LanguageScreen()),
@@ -124,9 +124,9 @@ class _SplashScreenState extends State<SplashScreen> {
             const Text(
               'Krushi मित्र',
               style: TextStyle(
-                fontFamily: 'Reggae One',
+                fontFamily: 'Kalam',
                 fontSize: 42,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w800,
                 color: Color(0xFF12723D),
                 letterSpacing: 0.15,
                 height: 1.2,

@@ -86,6 +86,17 @@ flutter:
       - family: Reggae One
         fonts:
           - asset: assets\fonts\ReggaeOne-Regular.ttf
+
+      - family: Kalam
+        fonts:
+          - asset: assets\fonts\Kalam-Regular.ttf
+          - asset: assets\fonts\Kalam-Bold.ttf
+
+      - family: Tillana
+        fonts:
+          - asset: assets\fonts\Tillana-Regular.ttf
+          - asset: assets\fonts\Tillana-Bold.ttf
+          - asset: assets\fonts\Tillana-ExtraBold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
